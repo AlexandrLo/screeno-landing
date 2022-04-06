@@ -1,8 +1,13 @@
 const Heading = {
   sizes: {
-    h1: {
-      fontSize: ["36px", "40px", "49px"],
-      fontWeight: "900",
+    sm: {
+      fontSize: "18px",
+      fontWeight: "700",
+      lineHeight: "1.2",
+    },
+    md: {
+      fontSize: ["36px", "40px", "48px"],
+      fontWeight: "800",
       lineHeight: "1.2",
     },
   },
