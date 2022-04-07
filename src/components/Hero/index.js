@@ -3,12 +3,10 @@ import {
   Box,
   Container,
   Text,
-  HStack,
   VStack,
   Stack,
   Button,
   Heading,
-  Show,
   Image,
   Circle,
   Wrap,
@@ -30,17 +28,16 @@ function Hero() {
         direction={{ base: "column", xl: "row" }}
         justifyContent={{ base: "start", md: "center", xl: "space-between" }}
         alignItems={{ base: "center", xl: "end" }}
-        spacing="3rem"
+        spacing={{ base: "3rem", xl: "7rem" }}
       >
         {/* Text */}
         <VStack
-          maxW={{ xl: "27.5rem" }}
           alignItems={{ base: "start", md: "center", xl: "start" }}
           textAlign={{ base: "start", md: "center", xl: "start" }}
           spacing="3rem"
         >
           <VStack spacing="1rem">
-            <Heading as="h1" size="md" color="white">
+            <Heading as="h1" size="h1" color="white">
               Reach more people in real time
             </Heading>
             <Text color="white" lineHeight="1.5">
@@ -62,25 +59,23 @@ function Hero() {
           </Wrap>
         </VStack>
         {/* Image */}
-        <Show>
-          <Box w="100%" maxW="543px" p={{ base: "1rem", md: "0" }}>
-            <Box position="relative">
-              <Image src={HeroImageBig} alt="Hero image" />
-              <HoverBadge right="-1rem" top="-1rem">
-                <Circle size="6px" bg="red" />
-                <Text>Live</Text>
-              </HoverBadge>
-              <Parallax position="absolute" left="-1rem" bottom="-2.5rem">
-                <Image
-                  src={HeroImageSmall}
-                  maxW={["7rem", "8rem", "10rem", "15rem", "auto"]}
-                  shadow="2xl"
-                  alt="Hero image"
-                />
-              </Parallax>
-            </Box>
+        <Box w="100%" maxW="543px" p={{ base: "1rem", md: "0" }}>
+          <Box position="relative">
+            <Image src={HeroImageBig} alt="Hero image" />
+            <HoverBadge position="absolute" right="-1rem" top="-1rem">
+              <Circle size="6px" bg="red" />
+              <Text>Live</Text>
+            </HoverBadge>
+            <Parallax position="absolute" left="-1rem" bottom="-2.5rem">
+              <Image
+                src={HeroImageSmall}
+                maxW={["7rem", "8rem", "10rem", "15rem", "auto"]}
+                shadow="2xl"
+                alt="Hero image"
+              />
+            </Parallax>
           </Box>
-        </Show>
+        </Box>
       </Stack>
     </Container>
   );
