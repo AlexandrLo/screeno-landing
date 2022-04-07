@@ -4,7 +4,7 @@ const Button = {
   baseStyle: {
     borderRadius: "1000px",
     _focus: { boxShadow: "none" },
-    "-webkit-tap-highlight-color": "transparent",
+    WebkitTapHighlightColor: "transparent",
   },
   sizes: {
     md: {
