@@ -38077,7 +38077,7 @@ var Button = {
     _focus: {
       boxShadow: "none"
     },
-    "-webkit-tap-highlight-color": "transparent"
+    WebkitTapHighlightColor: "transparent"
   },
   sizes: {
     md: {
@@ -38178,7 +38178,7 @@ var Link = {
     _focus: {
       boxShadow: "none"
     },
-    "-webkit-tap-highlight-color": "transparent"
+    WebkitTapHighlightColor: "transparent"
   },
   variants: {
     menu: {
