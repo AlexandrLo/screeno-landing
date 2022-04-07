@@ -37873,17 +37873,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/media-query/dist/chakra-ui-media-query.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-var _excluded = ["children", "offset"];
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/utils/use-reduced-motion.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/media-query/dist/chakra-ui-media-query.esm.js");
+var _excluded = ["children", "offset", "motionDirection", "scrollDirection"];
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -37896,6 +37897,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -37914,31 +37917,52 @@ function Parallax(_ref) {
     md: 25,
     xl: 50
   } : _ref$offset,
+      _ref$motionDirection = _ref.motionDirection,
+      motionDirection = _ref$motionDirection === void 0 ? "y" : _ref$motionDirection,
+      _ref$scrollDirection = _ref.scrollDirection,
+      scrollDirection = _ref$scrollDirection === void 0 ? "y" : _ref$scrollDirection,
       props = _objectWithoutProperties(_ref, _excluded);
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      elementTop = _useState2[0],
-      setElementTop = _useState2[1];
+  // Disable motion if reduce motion enabled
+  var prefersReducedMotion = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useReducedMotion)();
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      clientHeight = _useState4[0],
-      setClientHeight = _useState4[1];
+  if (prefersReducedMotion) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, props, children);
+  }
+
+  var responsiveOffset = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.useBreakpointValue)(_typeof(offset) === "object" ? offset : {
+    base: offset
+  });
+
+  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_4__.useViewportScroll)(),
+      scrollY = _useViewportScroll.scrollY,
+      scrollX = _useViewportScroll.scrollX;
 
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
-  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useViewportScroll)(),
-      scrollY = _useViewportScroll.scrollY;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      elementCoord = _useState2[0],
+      setElementCoord = _useState2[1];
 
-  var offsetBreakpoints = _typeof(offset) === "object" ? offset : {
-    base: offset
-  };
-  var responsiveOffset = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.useBreakpointValue)(offsetBreakpoints);
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      clientDimension = _useState4[0],
+      setClientDimension = _useState4[1];
+  /**
+   * Updates coordinates
+   *
+   */
+
 
   var onResize = function onResize() {
-    setElementTop(ref.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
-    setClientHeight(window.innerHeight);
+    if (motionDirection === "y") {
+      setElementCoord(ref.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
+      setClientDimension(window.innerHeight);
+    } else if (motionDirection === "x") {
+      setElementCoord(ref.current.getBoundingClientRect().left + window.scrollX || window.pageXOffset);
+      setClientDimension(window.innerWidth);
+    }
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
@@ -37947,27 +37971,28 @@ function Parallax(_ref) {
     return function () {
       return window.removeEventListener("resize", onResize);
     };
-  }, [ref]);
-  var initial = elementTop - clientHeight;
+  }, [ref]); // Init motion
 
-  var _final = elementTop + responsiveOffset;
+  var initial = elementCoord - clientDimension;
 
-  var yTransform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_3__.useTransform)(scrollY, [initial, _final], [responsiveOffset, -responsiveOffset]);
-  var y = (0,framer_motion__WEBPACK_IMPORTED_MODULE_4__.useSpring)(yTransform, {
+  var _final = elementCoord + responsiveOffset;
+
+  var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_5__.useTransform)(scrollDirection === "y" ? scrollY : scrollX, [initial, _final], [responsiveOffset, -responsiveOffset]);
+  var coordinate = (0,framer_motion__WEBPACK_IMPORTED_MODULE_6__.useSpring)(transform, {
     stiffness: 400,
     damping: 90
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Box, props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_6__.motion.div, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_7__.motion.div, {
     ref: ref,
-    style: {
-      y: y
-    }
+    style: _defineProperty({}, motionDirection, coordinate)
   }, children));
 }
 
 Parallax.propTypes = {
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
-  offset: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().number)
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().node),
+  offset: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().number),
+  motionDirection: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(["x", "y"]),
+  scrollDirection: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(["x", "y"])
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Parallax);
 
