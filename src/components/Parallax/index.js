@@ -5,28 +5,49 @@ import {
   useViewportScroll,
   useTransform,
   useSpring,
+  useReducedMotion,
 } from "framer-motion";
 import { Box, useBreakpointValue } from "@chakra-ui/react";
 
 function Parallax({
   children,
   offset = { base: 15, md: 25, xl: 50 },
+  motionDirection = "y",
+  scrollDirection = "y",
   ...props
 }) {
-  const [elementTop, setElementTop] = useState(0);
-  const [clientHeight, setClientHeight] = useState(0);
-  const ref = useRef(null);
-  const { scrollY } = useViewportScroll();
-  const offsetBreakpoints =
-    typeof offset === "object" ? offset : { base: offset };
-  const responsiveOffset = useBreakpointValue(offsetBreakpoints);
+  // Disable motion if reduce motion enabled
+  const prefersReducedMotion = useReducedMotion();
+  if (prefersReducedMotion) {
+    return <Box {...props}>{children}</Box>;
+  }
 
+  const responsiveOffset = useBreakpointValue(
+    typeof offset === "object" ? offset : { base: offset },
+  );
+  const { scrollY, scrollX } = useViewportScroll();
+  const ref = useRef(null);
+  const [elementCoord, setElementCoord] = useState(0);
+  const [clientDimension, setClientDimension] = useState(0);
+
+  /**
+   * Updates coordinates
+   *
+   */
   const onResize = () => {
-    setElementTop(
-      ref.current.getBoundingClientRect().top + window.scrollY ||
-        window.pageYOffset,
-    );
-    setClientHeight(window.innerHeight);
+    if (motionDirection === "y") {
+      setElementCoord(
+        ref.current.getBoundingClientRect().top + window.scrollY ||
+          window.pageYOffset,
+      );
+      setClientDimension(window.innerHeight);
+    } else if (motionDirection === "x") {
+      setElementCoord(
+        ref.current.getBoundingClientRect().left + window.scrollX ||
+          window.pageXOffset,
+      );
+      setClientDimension(window.innerWidth);
+    }
   };
 
   useLayoutEffect(() => {
@@ -35,18 +56,19 @@ function Parallax({
     return () => window.removeEventListener("resize", onResize);
   }, [ref]);
 
-  const initial = elementTop - clientHeight;
-  const final = elementTop + responsiveOffset;
-  const yTransform = useTransform(
-    scrollY,
+  // Init motion
+  const initial = elementCoord - clientDimension;
+  const final = elementCoord + responsiveOffset;
+  const transform = useTransform(
+    scrollDirection === "y" ? scrollY : scrollX,
     [initial, final],
     [responsiveOffset, -responsiveOffset],
   );
-  const y = useSpring(yTransform, { stiffness: 400, damping: 90 });
+  const coordinate = useSpring(transform, { stiffness: 400, damping: 90 });
 
   return (
     <Box {...props}>
-      <motion.div ref={ref} style={{ y }}>
+      <motion.div ref={ref} style={{ [motionDirection]: coordinate }}>
         {children}
       </motion.div>
     </Box>
@@ -56,6 +78,8 @@ function Parallax({
 Parallax.propTypes = {
   children: PropTypes.node,
   offset: PropTypes.number,
+  motionDirection: PropTypes.oneOf(["x", "y"]),
+  scrollDirection: PropTypes.oneOf(["x", "y"]),
 };
 
 export default Parallax;
