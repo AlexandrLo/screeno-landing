@@ -37409,6 +37409,165 @@ function App() {
 
 /***/ }),
 
+/***/ "./src/components/FeaturesGrid/FeatureCell.js":
+/*!****************************************************!*\
+  !*** ./src/components/FeaturesGrid/FeatureCell.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+var _excluded = ["icon", "heading", "text"];
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+function FeatureCell(_ref) {
+  var icon = _ref.icon,
+      heading = _ref.heading,
+      text = _ref.text,
+      props = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.VStack, _extends({
+    alignItems: "start",
+    spacing: "1rem"
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.HStack, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Box, {
+    color: "blue.400",
+    fontSize: "1.5rem"
+  }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Heading, {
+    as: "h3",
+    size: "h3"
+  }, heading)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, null, text));
+}
+
+FeatureCell.propTypes = {
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().node),
+  heading: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  text: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FeatureCell);
+
+/***/ }),
+
+/***/ "./src/components/FeaturesGrid/index.js":
+/*!**********************************************!*\
+  !*** ./src/components/FeaturesGrid/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/UploadSimple.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/VideoCamera.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/Broadcast.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/CurrencyCircleDollar.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/ChartLine.esm.js");
+/* harmony import */ var phosphor_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! phosphor-react */ "./node_modules/phosphor-react/dist/icons/DesktopTower.esm.js");
+/* harmony import */ var _FeatureCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FeatureCell */ "./src/components/FeaturesGrid/FeatureCell.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+function FeaturesGrid() {
+  var featuresData = [{
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_2__["default"], null),
+    heading: "Upload & Organize",
+    text: "Upload in bulk, organize content in categories, add custom filters & upload extras"
+  }, {
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_3__["default"], null),
+    heading: "Stream On-Demand",
+    text: "Showcase your content in a beautiful on-demand video catalog."
+  }, {
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_4__["default"], null),
+    heading: "Stream Live",
+    text: "Schedule events in advance & build excitement with a countdown overlay."
+  }, {
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_5__["default"], null),
+    heading: "Monetization",
+    text: "Offer subscriptions or one-time purchases. Accept credit cards & PayPal."
+  }, {
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+    heading: "Analytics",
+    text: "Know what your audience likes & how your content is performing."
+  }, {
+    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(phosphor_react__WEBPACK_IMPORTED_MODULE_7__["default"], null),
+    heading: "For all devices",
+    text: "Get organized on all devices"
+  }];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Container, {
+    maxW: {
+      base: "container.sm",
+      xl: "container.xl"
+    },
+    py: {
+      base: "3rem",
+      md: "6.5rem"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.VStack, {
+    spacing: {
+      base: "3rem",
+      md: "7.5rem"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.VStack, {
+    spacing: "1rem",
+    alignItems: {
+      base: "start",
+      md: "center"
+    },
+    textAlign: {
+      base: "start",
+      md: "center"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Heading, {
+    as: "h1",
+    size: "h1"
+  }, "All-in-one platform"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Text, {
+    lineHeight: "1.5"
+  }, "You take care of the video quality and we take care of everything else")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.SimpleGrid, {
+    columns: {
+      base: 1,
+      md: 2,
+      xl: 3
+    },
+    spacing: {
+      base: "3rem",
+      md: "5rem",
+      xl: "7.5rem"
+    },
+    maxW: "57rem"
+  }, featuresData.map(function (featureData, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FeatureCell__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
+      key: "feature-".concat(index)
+    }, featureData));
+  }))));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FeaturesGrid);
+
+/***/ }),
+
 /***/ "./src/components/Hero/index.js":
 /*!**************************************!*\
   !*** ./src/components/Hero/index.js ***!
@@ -37423,8 +37582,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chakra-ui-button.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/media-query/dist/chakra-ui-media-query.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
 /* harmony import */ var assets_hero_image_big_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! assets/hero-image-big.png */ "./src/assets/hero-image-big.png");
 /* harmony import */ var assets_hero_image_small_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! assets/hero-image-small.png */ "./src/assets/hero-image-small.png");
 /* harmony import */ var components_HoverBadge__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! components/HoverBadge */ "./src/components/HoverBadge/index.js");
@@ -37464,11 +37622,11 @@ function Hero() {
       base: "center",
       xl: "end"
     },
-    spacing: "3rem"
+    spacing: {
+      base: "3rem",
+      xl: "7rem"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.VStack, {
-    maxW: {
-      xl: "27.5rem"
-    },
     alignItems: {
       base: "start",
       md: "center",
@@ -37484,7 +37642,7 @@ function Hero() {
     spacing: "1rem"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Heading, {
     as: "h1",
-    size: "md",
+    size: "h1",
     color: "white"
   }, "Reach more people in real time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Text, {
     color: "white",
@@ -37496,7 +37654,7 @@ function Hero() {
   }, "Start Free Trial")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.WrapItem, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Button, {
     variant: "outline",
     colorScheme: "white"
-  }, "Log In")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Show, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Box, {
+  }, "Log In")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Box, {
     w: "100%",
     maxW: "543px",
     p: {
@@ -37505,10 +37663,11 @@ function Hero() {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Box, {
     position: "relative"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Image, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Image, {
     src: assets_hero_image_big_png__WEBPACK_IMPORTED_MODULE_1__,
     alt: "Hero image"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_HoverBadge__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    position: "absolute",
     right: "-1rem",
     top: "-1rem"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Circle, {
@@ -37518,12 +37677,12 @@ function Hero() {
     position: "absolute",
     left: "-1rem",
     bottom: "-2.5rem"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Image, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Image, {
     src: assets_hero_image_small_png__WEBPACK_IMPORTED_MODULE_2__,
     maxW: ["7rem", "8rem", "10rem", "15rem", "auto"],
     shadow: "2xl",
     alt: "Hero image"
-  })))))));
+  }))))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hero);
@@ -37553,7 +37712,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function HoverBadge(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Box, _extends({
-    position: "absolute",
     bg: "white",
     lineHeight: "1.5",
     borderRadius: "full",
@@ -37562,19 +37720,12 @@ function HoverBadge(props) {
     px: "1rem",
     py: "0.25rem",
     transition: "all ease 200ms",
+    userSelect: "none",
+    boxShadow: "2xl",
     _hover: {
       transform: "scale(1.05)"
-    },
-    userSelect: "none",
-    boxShadow: "dark-lg"
-  }, props, {
-    animate: {
-      x: -18,
-      y: -12,
-      scale: 1.6,
-      rotate: 0
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.HStack, null, props.children));
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.HStack, null, props.children));
 }
 
 HoverBadge.propTypes = {
@@ -38032,10 +38183,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
 /* harmony import */ var components_NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! components/NavBar */ "./src/components/NavBar/index.js");
 /* harmony import */ var components_Hero__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! components/Hero */ "./src/components/Hero/index.js");
 /* harmony import */ var components_LogoCloud__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! components/LogoCloud */ "./src/components/LogoCloud/index.js");
+/* harmony import */ var components_FeaturesGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! components/FeaturesGrid */ "./src/components/FeaturesGrid/index.js");
+
 
 
 
@@ -38043,9 +38196,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function HomePage() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Box, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Box, {
     bg: "gray.900"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_Hero__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_LogoCloud__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_Hero__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_LogoCloud__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(components_FeaturesGrid__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);
@@ -38146,12 +38299,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var Heading = {
   sizes: {
-    sm: {
+    h3: {
       fontSize: "18px",
       fontWeight: "700",
       lineHeight: "1.2"
     },
-    md: {
+    h2: {
+      fontSize: ["24px", "30px", "36px"],
+      fontWeight: "700",
+      lineHeight: "1.2"
+    },
+    h1: {
       fontSize: ["36px", "40px", "48px"],
       fontWeight: "800",
       lineHeight: "1.2"
@@ -38253,16 +38411,16 @@ var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.extendTheme)({
       900: "#003cff"
     },
     gray: {
-      50: "#F7FAFC",
-      100: "#EDF2F7",
-      200: "#E2E8F0",
-      300: "#CBD5E0",
-      400: "#A0AEC0",
-      500: "#718096",
-      600: "#4A5568",
-      700: "#2D3748",
-      800: "#1A202C",
-      900: "#141516"
+      50: "#FCFCFC",
+      100: "#F5F5F5",
+      200: "#F0F0F0",
+      300: "#E0E0E0",
+      400: "#C0C0C0",
+      500: "#969696",
+      600: "#686868",
+      700: "#484848",
+      800: "#2C2C2C",
+      900: "#161616"
     }
   },
   sizes: {
@@ -42942,6 +43100,1018 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 /***/ }),
 
+/***/ "./node_modules/phosphor-react/dist/icons/Broadcast.esm.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/Broadcast.esm.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.1,178.9A71.6,71.6,0,0,1,61.7,156a71.6,71.6,0,0,1,0-56A71.6,71.6,0,0,1,77.1,77.1",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M178.9,77.1A71.6,71.6,0,0,1,194.3,100a71.6,71.6,0,0,1,0,56,71.6,71.6,0,0,1-15.4,22.9",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M48.8,207.2a112.9,112.9,0,0,1-24-35.6,112.4,112.4,0,0,1,0-87.2,112.9,112.9,0,0,1,24-35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M207.2,48.8a112.9,112.9,0,0,1,24,35.6,112.4,112.4,0,0,1,0,87.2,112.9,112.9,0,0,1-24,35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    opacity: "0.2"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.1,178.9A71.6,71.6,0,0,1,61.7,156a71.6,71.6,0,0,1,0-56A71.6,71.6,0,0,1,77.1,77.1",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M178.9,77.1A71.6,71.6,0,0,1,194.3,100a71.6,71.6,0,0,1,0,56,71.6,71.6,0,0,1-15.4,22.9",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M48.8,207.2a112.9,112.9,0,0,1-24-35.6,112.4,112.4,0,0,1,0-87.2,112.9,112.9,0,0,1,24-35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M207.2,48.8a112.9,112.9,0,0,1,24,35.6,112.4,112.4,0,0,1,0,87.2,112.9,112.9,0,0,1-24,35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "40"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M82.7,82.7a7.9,7.9,0,0,0,0-11.3,8,8,0,0,0-11.3,0A80,80,0,0,0,54.3,96.9a79.9,79.9,0,0,0,0,62.2,80,80,0,0,0,17.1,25.5,8.3,8.3,0,0,0,5.7,2.3,8,8,0,0,0,5.6-2.3,7.9,7.9,0,0,0,0-11.3A65.4,65.4,0,0,1,69,152.9a64.5,64.5,0,0,1,0-49.8A65.4,65.4,0,0,1,82.7,82.7Z"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M208,128a78.6,78.6,0,0,0-6.3-31.1,80,80,0,0,0-17.1-25.5,8,8,0,0,0-11.3,0,7.9,7.9,0,0,0,0,11.3A65.4,65.4,0,0,1,187,103.1a64.5,64.5,0,0,1,0,49.8,65.4,65.4,0,0,1-13.7,20.4,7.9,7.9,0,0,0,0,11.3,8,8,0,0,0,5.6,2.3,8.3,8.3,0,0,0,5.7-2.3,80,80,0,0,0,17.1-25.5A78.6,78.6,0,0,0,208,128Z"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M32.2,168.5a104.1,104.1,0,0,1,0-81,101.3,101.3,0,0,1,22.3-33A8.1,8.1,0,0,0,43.1,43.1,121.8,121.8,0,0,0,17.4,81.3a120.7,120.7,0,0,0,0,93.4,121.8,121.8,0,0,0,25.7,38.2,8.5,8.5,0,0,0,5.7,2.3,8.3,8.3,0,0,0,5.7-2.3,8.1,8.1,0,0,0,0-11.4A101.3,101.3,0,0,1,32.2,168.5Z"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M238.6,81.3a121.8,121.8,0,0,0-25.7-38.2,8.1,8.1,0,1,0-11.4,11.4A103.5,103.5,0,0,1,232,128a103.5,103.5,0,0,1-30.5,73.5,8.1,8.1,0,0,0,0,11.4,8.3,8.3,0,0,0,5.7,2.3,8.5,8.5,0,0,0,5.7-2.3,121.8,121.8,0,0,0,25.7-38.2,120.7,120.7,0,0,0,0-93.4Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.1,178.9A71.6,71.6,0,0,1,61.7,156a71.6,71.6,0,0,1,0-56A71.6,71.6,0,0,1,77.1,77.1",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M178.9,77.1A71.6,71.6,0,0,1,194.3,100a71.6,71.6,0,0,1,0,56,71.6,71.6,0,0,1-15.4,22.9",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M48.8,207.2a112.9,112.9,0,0,1-24-35.6,112.4,112.4,0,0,1,0-87.2,112.9,112.9,0,0,1,24-35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M207.2,48.8a112.9,112.9,0,0,1,24,35.6,112.4,112.4,0,0,1,0,87.2,112.9,112.9,0,0,1-24,35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.1,178.9A71.6,71.6,0,0,1,61.7,156a71.6,71.6,0,0,1,0-56A71.6,71.6,0,0,1,77.1,77.1",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M178.9,77.1A71.6,71.6,0,0,1,194.3,100a71.6,71.6,0,0,1,0,56,71.6,71.6,0,0,1-15.4,22.9",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M48.8,207.2a112.9,112.9,0,0,1-24-35.6,112.4,112.4,0,0,1,0-87.2,112.9,112.9,0,0,1,24-35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M207.2,48.8a112.9,112.9,0,0,1,24,35.6,112.4,112.4,0,0,1,0,87.2,112.9,112.9,0,0,1-24,35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "32",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.1,178.9A71.6,71.6,0,0,1,61.7,156a71.6,71.6,0,0,1,0-56A71.6,71.6,0,0,1,77.1,77.1",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M178.9,77.1A71.6,71.6,0,0,1,194.3,100a71.6,71.6,0,0,1,0,56,71.6,71.6,0,0,1-15.4,22.9",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M48.8,207.2a112.9,112.9,0,0,1-24-35.6,112.4,112.4,0,0,1,0-87.2,112.9,112.9,0,0,1,24-35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M207.2,48.8a112.9,112.9,0,0,1,24,35.6,112.4,112.4,0,0,1,0,87.2,112.9,112.9,0,0,1-24,35.6",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var Broadcast = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+Broadcast.displayName = "Broadcast";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Broadcast);
+//# sourceMappingURL=Broadcast.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/phosphor-react/dist/icons/ChartLine.esm.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/ChartLine.esm.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 208 32 208 32 48",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 96 160 152 96 104 32 160",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 208 32 208 32 48",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 96 160 152 96 104 32 160",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M224,200H40V163.6l56.4-49.3,58.8,44.1a8,8,0,0,0,10.1-.4l64-56a8,8,0,1,0-10.6-12l-59.1,51.7L100.8,97.6a8,8,0,0,0-10.1.4L40,142.4V48a8,8,0,0,0-16,0V208a8,8,0,0,0,8,8H224a8,8,0,0,0,0-16Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 208 32 208 32 48",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 96 160 152 96 104 32 160",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 208 32 208 32 48",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 96 160 152 96 104 32 160",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 208 32 208 32 48",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "224 96 160 152 96 104 32 160",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var ChartLine = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+ChartLine.displayName = "ChartLine";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChartLine);
+//# sourceMappingURL=ChartLine.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/phosphor-react/dist/icons/CurrencyCircleDollar.esm.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/CurrencyCircleDollar.esm.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "72",
+    x2: "128",
+    y2: "88",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "168",
+    x2: "128",
+    y2: "184",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M104,168h36a20,20,0,0,0,0-40H116a20,20,0,0,1,0-40h36",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    opacity: "0.2"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "72",
+    x2: "128",
+    y2: "88",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "168",
+    x2: "128",
+    y2: "184",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M104,168h36a20,20,0,0,0,0-40H116a20,20,0,0,1,0-40h36",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M128,24A104,104,0,1,0,232,128,104.2,104.2,0,0,0,128,24Zm12,152h-4v8a8,8,0,0,1-16,0v-8H104a8,8,0,0,1,0-16h36a12,12,0,0,0,0-24H116a28,28,0,0,1,0-56h4V72a8,8,0,0,1,16,0v8h16a8,8,0,0,1,0,16H116a12,12,0,0,0,0,24h24a28,28,0,0,1,0,56Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "72",
+    x2: "128",
+    y2: "88",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "168",
+    x2: "128",
+    y2: "184",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M104,168h36a20,20,0,0,0,0-40H116a20,20,0,0,1,0-40h36",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "72",
+    x2: "128",
+    y2: "88",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "168",
+    x2: "128",
+    y2: "184",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M104,168h36a20,20,0,0,0,0-40H116a20,20,0,0,1,0-40h36",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "72",
+    x2: "128",
+    y2: "88",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "168",
+    x2: "128",
+    y2: "184",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "128",
+    cy: "128",
+    r: "96",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M104,168h36a20,20,0,0,0,0-40H116a20,20,0,0,1,0-40h36",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var CurrencyCircleDollar = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+CurrencyCircleDollar.displayName = "CurrencyCircleDollar";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CurrencyCircleDollar);
+//# sourceMappingURL=CurrencyCircleDollar.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/phosphor-react/dist/icons/DesktopTower.esm.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/DesktopTower.esm.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M108,180H32a16,16,0,0,1-16-16V96A16,16,0,0,1,32,80h76",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "108",
+    y1: "216",
+    x2: "68",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "204",
+    y1: "76",
+    x2: "180",
+    y2: "76",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "204",
+    y1: "112",
+    x2: "180",
+    y2: "112",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "88",
+    y1: "180",
+    x2: "88",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "192",
+    cy: "176",
+    r: "16"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    opacity: "0.2"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M112,184H32a16,16,0,0,1-16-16V96A16,16,0,0,1,32,80h80",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "112",
+    y1: "216",
+    x2: "64",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "72",
+    x2: "176",
+    y2: "72",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "104",
+    x2: "176",
+    y2: "104",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "88",
+    y1: "184",
+    x2: "88",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "192",
+    cy: "180",
+    r: "12"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M120,80V184a8,8,0,0,1-8,8H96v16h16a8,8,0,0,1,0,16H64a8,8,0,0,1,0-16H80V192H32A24.1,24.1,0,0,1,8,168V96A24.1,24.1,0,0,1,32,72h80A8,8,0,0,1,120,80ZM248,48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h80A16,16,0,0,1,248,48ZM204,180a12,12,0,1,0-12,12A12,12,0,0,0,204,180Zm20-76a8,8,0,0,0-8-8H168a8,8,0,0,0,0,16h48A8,8,0,0,0,224,104Zm0-32a8,8,0,0,0-8-8H168a8,8,0,0,0,0,16h48A8,8,0,0,0,224,72Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M112,184H32a16,16,0,0,1-16-16V96A16,16,0,0,1,32,80h80",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "112",
+    y1: "216",
+    x2: "64",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "72",
+    x2: "176",
+    y2: "72",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "104",
+    x2: "176",
+    y2: "104",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "88",
+    y1: "184",
+    x2: "88",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "192",
+    cy: "180",
+    r: "10"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M112,184H32a16,16,0,0,1-16-16V96A16,16,0,0,1,32,80h80",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "112",
+    y1: "216",
+    x2: "64",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "72",
+    x2: "176",
+    y2: "72",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "104",
+    x2: "176",
+    y2: "104",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "88",
+    y1: "184",
+    x2: "88",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "192",
+    cy: "180",
+    r: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M112,184H32a16,16,0,0,1-16-16V96A16,16,0,0,1,32,80h80",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "112",
+    y1: "216",
+    x2: "64",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "72",
+    x2: "176",
+    y2: "72",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "208",
+    y1: "104",
+    x2: "176",
+    y2: "104",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("rect", {
+    x: "144",
+    y: "40",
+    width: "96",
+    height: "176",
+    rx: "8",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "88",
+    y1: "184",
+    x2: "88",
+    y2: "216",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: "192",
+    cy: "180",
+    r: "12"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var DesktopTower = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+DesktopTower.displayName = "DesktopTower";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DesktopTower);
+//# sourceMappingURL=DesktopTower.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/phosphor-react/dist/icons/List.esm.js":
 /*!************************************************************!*\
   !*** ./node_modules/phosphor-react/dist/icons/List.esm.js ***!
@@ -43146,6 +44316,319 @@ List.displayName = "List";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);
 //# sourceMappingURL=List.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/phosphor-react/dist/icons/UploadSimple.esm.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/UploadSimple.esm.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "86 82 128 40 170 82",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "152",
+    x2: "128",
+    y2: "40",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "86 82 128 40 170 82",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "152",
+    x2: "128",
+    y2: "40",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M78.6,85a8.2,8.2,0,0,1,1.7-8.7l42-42a8.1,8.1,0,0,1,11.4,0l42,42a8.2,8.2,0,0,1,1.7,8.7,8,8,0,0,1-7.4,5H136v62a8,8,0,0,1-16,0V90H86A8,8,0,0,1,78.6,85ZM216,144a8,8,0,0,0-8,8v56H48V152a8,8,0,0,0-16,0v56a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A8,8,0,0,0,216,144Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "86 82 128 40 170 82",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "152",
+    x2: "128",
+    y2: "40",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "86 82 128 40 170 82",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "152",
+    x2: "128",
+    y2: "40",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "86 82 128 40 170 82",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("line", {
+    x1: "128",
+    y1: "152",
+    x2: "128",
+    y2: "40",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var UploadSimple = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+UploadSimple.displayName = "UploadSimple";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UploadSimple);
+//# sourceMappingURL=UploadSimple.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/phosphor-react/dist/icons/VideoCamera.esm.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/phosphor-react/dist/icons/VideoCamera.esm.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/index.esm.js */ "./node_modules/phosphor-react/dist/lib/index.esm.js");
+/* harmony import */ var _lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/IconBase.esm.js */ "./node_modules/phosphor-react/dist/lib/IconBase.esm.js");
+
+
+
+
+/* GENERATED FILE */
+var pathsByWeight = /*#__PURE__*/new Map();
+pathsByWeight.set("bold", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "184 112 240 80 240 176 184 144",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight.set("duotone", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    opacity: "0.2"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "184 112 240 80 240 176 184 144",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight.set("fill", function () {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M176,92v96a16,16,0,0,1-16,16H48A40,40,0,0,1,8,164V68A16,16,0,0,1,24,52H136A40,40,0,0,1,176,92Zm68-18.9a7.7,7.7,0,0,0-8,0L196,95.9a8,8,0,0,0-4,7v50.2a8,8,0,0,0,4,7l40,22.8a8.3,8.3,0,0,0,4,1.1,8,8,0,0,0,4-1.1,7.8,7.8,0,0,0,4-6.9V80A7.8,7.8,0,0,0,244,73.1Z"
+  }));
+});
+pathsByWeight.set("light", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "184 112 240 80 240 176 184 144",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight.set("thin", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "184 112 240 80 240 176 184 144",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight.set("regular", function (color) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M24,60H152a32,32,0,0,1,32,32v96a8,8,0,0,1-8,8H48a32,32,0,0,1-32-32V68A8,8,0,0,1,24,60Z",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("polyline", {
+    points: "184 112 240 80 240 176 184 144",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+
+var renderPath = function renderPath(weight, color) {
+  return (0,_lib_index_esm_js__WEBPACK_IMPORTED_MODULE_1__.renderPathForWeight)(weight, color, pathsByWeight);
+};
+
+var VideoCamera = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (props, ref) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lib_IconBase_esm_js__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({
+    ref: ref
+  }, props, {
+    renderPath: renderPath
+  }));
+});
+VideoCamera.displayName = "VideoCamera";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoCamera);
+//# sourceMappingURL=VideoCamera.esm.js.map
 
 
 /***/ }),
