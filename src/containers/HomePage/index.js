@@ -5,6 +5,7 @@ import Hero from "components/Hero";
 import LogoCloud from "components/LogoCloud";
 import FeaturesGrid from "components/FeaturesGrid";
 import FeaturesBig from "components/FeaturesBig";
+import Gallery from "components/Gallery";
 
 function HomePage() {
   return (
@@ -18,6 +19,8 @@ function HomePage() {
       <Box bg="gray.900">
         <FeaturesBig />
       </Box>
+      <Gallery />
+      <Box bg="gray.100" h={"560px"} />
     </div>
   );
 }
