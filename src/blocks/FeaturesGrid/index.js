@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Text, VStack, Heading, SimpleGrid } from "@chakra-ui/react";
+import React, { useState } from "react";
+
 import {
   Broadcast,
   ChartLine,
@@ -8,10 +8,12 @@ import {
   UploadSimple,
   VideoCamera,
 } from "phosphor-react";
+import { Container, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+
 import FeatureCell from "./FeatureCell";
 
 function FeaturesGrid() {
-  const featuresData = [
+  const [features] = useState([
     {
       icon: <UploadSimple />,
       heading: "Upload & Organize",
@@ -42,7 +44,7 @@ function FeaturesGrid() {
       heading: "For all devices",
       text: "Get organized on all devices",
     },
-  ];
+  ]);
 
   return (
     <Container
@@ -70,8 +72,8 @@ function FeaturesGrid() {
           spacing={{ base: "3rem", md: "5rem", xl: "7.5rem" }}
           maxW="57rem"
         >
-          {featuresData.map((featureData, index) => (
-            <FeatureCell key={`feature-${index}`} {...featureData} />
+          {features.map((feature, index) => (
+            <FeatureCell key={`feature-${index}`} {...feature} />
           ))}
         </SimpleGrid>
       </VStack>

@@ -1,6 +1,7 @@
 import React from "react";
+
 import PropTypes from "prop-types";
-import { Box, Text, HStack, VStack, Heading } from "@chakra-ui/react";
+import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
 function FeatureCell({ icon, heading, text, ...props }) {
   return (

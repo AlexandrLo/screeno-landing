@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import FeaturesGrid from "components/FeaturesGrid";
 import FeaturesBig from "components/FeaturesBig";
 import Gallery from "components/Gallery";
+import FeaturesGrid from "blocks/FeaturesGrid";
 import Hero from "blocks/Hero";
 import LogoCloud from "blocks/LogoCloud";
 import NavBar from "blocks/NavBar";
