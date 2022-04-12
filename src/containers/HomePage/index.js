@@ -2,6 +2,7 @@ import React from "react";
 
 import FeaturesBig from "blocks/FeaturesBig";
 import FeaturesGrid from "blocks/FeaturesGrid";
+import Footer from "blocks/Footer";
 import Gallery from "blocks/Gallery";
 import Hero from "blocks/Hero";
 import LogoCloud from "blocks/LogoCloud";
@@ -16,6 +17,7 @@ function HomePage() {
       <FeaturesGrid />
       <FeaturesBig />
       <Gallery />
+      <Footer />
     </>
   );
 }
