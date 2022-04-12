@@ -5,11 +5,13 @@ import Container from "theme/components/Container";
 import Button from "theme/components/Button";
 import Link from "theme/components/Link";
 import Heading from "theme/components/Heading";
+import Input from "theme/components/Input";
+import Textarea from "theme/components/Textarea";
 
 const theme = extendTheme({
   config: {
     initialColorMode: "light",
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   },
   fonts: {
     heading: "MulishVariable",
@@ -54,6 +56,8 @@ const theme = extendTheme({
     Button,
     Link,
     Heading,
+    Input,
+    Textarea,
   },
 });
 

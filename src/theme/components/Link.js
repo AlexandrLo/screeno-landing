@@ -1,7 +1,6 @@
 const Link = {
   baseStyle: {
     _focus: { boxShadow: "none" },
-    WebkitTapHighlightColor: "transparent",
   },
   variants: {
     menu: {
