@@ -1,8 +1,11 @@
-import { Heading, VStack, Text, Box } from "@chakra-ui/react";
-import ImageCarousel from "components/ImageCarousel";
 import React from "react";
 
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+
+import ImageCarousel from "components/ImageCarousel";
+
 function index() {
+  // Get all video thumbnails
   var req = require.context("assets/thumbnails", false, /\.png$/);
   const images = req.keys().map(req);
 
@@ -11,7 +14,7 @@ function index() {
       <VStack spacing={{ base: "3rem", md: "6.5rem" }}>
         <VStack spacing="1rem">
           <Heading as="h1" size="h1">
-            See what's next
+            See what&apos;s next
           </Heading>
           <Text>Watch your favorite content on our platform</Text>
         </VStack>

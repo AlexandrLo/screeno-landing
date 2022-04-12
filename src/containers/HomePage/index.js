@@ -1,8 +1,8 @@
 import React from "react";
-import Gallery from "components/Gallery";
 
 import FeaturesBig from "blocks/FeaturesBig";
 import FeaturesGrid from "blocks/FeaturesGrid";
+import Gallery from "blocks/Gallery";
 import Hero from "blocks/Hero";
 import LogoCloud from "blocks/LogoCloud";
 import NavBar from "blocks/NavBar";
