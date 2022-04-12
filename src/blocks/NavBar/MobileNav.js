@@ -1,20 +1,22 @@
 import React, { useRef } from "react";
+
+import { List } from "phosphor-react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
   Button,
-  HStack,
-  VStack,
-  Hide,
-  useDisclosure,
   Drawer,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
+  HStack,
+  Hide,
+  Link,
+  VStack,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { List } from "phosphor-react";
-import NavItem from "./NavItem";
 
 function MobileNav({ links, ...props }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,6 +24,7 @@ function MobileNav({ links, ...props }) {
 
   return (
     <Hide above="lg">
+      {/* Menu button */}
       <Button
         variant="circle"
         px="0"
@@ -31,6 +34,7 @@ function MobileNav({ links, ...props }) {
       >
         <List size={28} weight="bold" />
       </Button>
+      {/* Menu overlay */}
       <Drawer
         isOpen={isOpen}
         placement="right"
@@ -46,14 +50,35 @@ function MobileNav({ links, ...props }) {
             </HStack>
           </DrawerHeader>
           <DrawerBody>
+            {/* Navigation links */}
             <VStack>
               {links.map((link) => {
                 return (
-                  <NavItem key={`mobile-nav${link.path}`} to={link.path}>
+                  <Link
+                    variant="menu"
+                    as={NavLink}
+                    key={`mobile-nav${link.path}`}
+                    to={link.path}
+                  >
                     {link.name}
-                  </NavItem>
+                  </Link>
                 );
               })}
+            </VStack>
+            {/* Login buttons */}
+            <VStack w="100%" alignItems="stretch" py="3rem">
+              <Button as={NavLink} to="/signup" colorScheme="blue">
+                Start Free Trial
+              </Button>
+              <Button
+                as={NavLink}
+                to="/login"
+                variant="ghost"
+                colorScheme="whiteAlpha"
+                color="white"
+              >
+                Log In
+              </Button>
             </VStack>
           </DrawerBody>
         </DrawerContent>

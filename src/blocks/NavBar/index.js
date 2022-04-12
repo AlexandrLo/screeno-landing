@@ -1,11 +1,13 @@
-import React from "react";
-import { Container, Box, Button, HStack, Link, Show } from "@chakra-ui/react";
+import React, { useState } from "react";
+
 import { NavLink } from "react-router-dom";
-import Logo from "assets/logo.svg";
+import { Box, Button, Container, HStack, Link, Show } from "@chakra-ui/react";
+
+import LogoWhite from "assets/logo-white.svg";
 import MobileNav from "./MobileNav";
 
 function NavBar() {
-  const links = [
+  const [navLinks] = useState([
     {
       name: "Examples",
       path: "/examples",
@@ -18,19 +20,20 @@ function NavBar() {
       name: "About",
       path: "/about",
     },
-  ];
+  ]);
 
   return (
-    <Box>
+    <Box bg="gray.900">
       <Container maxW="container.xl" py="1.5rem">
         <HStack justifyContent="space-between" spacing="6rem">
+          {/* Left links */}
           <HStack spacing="6rem">
             <Link as={NavLink} to="/">
-              <Logo />
+              <LogoWhite />
             </Link>
             <Show above="lg">
               <HStack spacing="5.25rem">
-                {links.map((link) => {
+                {navLinks.map((link) => {
                   return (
                     <Button
                       key={`nav${link.path}`}
@@ -47,15 +50,25 @@ function NavBar() {
               </HStack>
             </Show>
           </HStack>
+          {/* Right Links */}
           <Show above="lg">
             <HStack spacing="1.125rem">
-              <Button variant="ghost" colorScheme="whiteAlpha" color="white">
+              <Button
+                as={NavLink}
+                to="/login"
+                variant="ghost"
+                colorScheme="whiteAlpha"
+                color="white"
+              >
                 Log In
               </Button>
-              <Button colorScheme="blue">Start Free Trial</Button>
+              <Button as={NavLink} to="/signup" colorScheme="blue">
+                Start Free Trial
+              </Button>
             </HStack>
           </Show>
-          <MobileNav links={links} />
+          {/* Mobile menu */}
+          <MobileNav links={navLinks} />
         </HStack>
       </Container>
     </Box>
