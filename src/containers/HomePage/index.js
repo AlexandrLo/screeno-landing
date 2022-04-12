@@ -1,18 +1,18 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import Hero from "components/Hero";
 import LogoCloud from "components/LogoCloud";
 import FeaturesGrid from "components/FeaturesGrid";
 import FeaturesBig from "components/FeaturesBig";
 import Gallery from "components/Gallery";
+import Hero from "blocks/Hero";
 import NavBar from "blocks/NavBar";
 
 function HomePage() {
   return (
-        <Hero />
         <LogoCloud />
     <>
       <NavBar />
+      <Hero />
       <FeaturesGrid />
       <Box bg="gray.900">
         <FeaturesBig />
