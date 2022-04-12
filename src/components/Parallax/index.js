@@ -1,13 +1,14 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
+
 import PropTypes from "prop-types";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import {
   motion,
-  useViewportScroll,
-  useTransform,
-  useSpring,
   useReducedMotion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
 } from "framer-motion";
-import { Box, useBreakpointValue } from "@chakra-ui/react";
 
 function Parallax({
   children,
