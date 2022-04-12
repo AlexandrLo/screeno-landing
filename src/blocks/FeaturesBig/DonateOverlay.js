@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, VStack, HStack } from "@chakra-ui/react";
+
+import { HStack, Text, VStack } from "@chakra-ui/react";
 
 function DonateOverlay(props) {
   const donations = [45, 75, 15];

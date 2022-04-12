@@ -1,23 +1,19 @@
 import React from "react";
+
+import { ArrowRight } from "phosphor-react";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   Box,
-  Container,
-  Text,
   HStack,
-  VStack,
-  Stack,
-  Button,
   Heading,
-  Show,
   Image,
-  Circle,
-  Wrap,
-  WrapItem,
   Link,
+  Stack,
+  Text,
+  VStack,
   useToken,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
-import { ArrowRight } from "phosphor-react";
 
 function Feature({
   heading = "Heading",
@@ -78,5 +74,15 @@ function Feature({
     </Stack>
   );
 }
+
+Feature.propTypes = {
+  heading: PropTypes.string,
+  text: PropTypes.string,
+  imageSrc: PropTypes.string,
+  imageAlt: PropTypes.string,
+  to: PropTypes.string,
+  reverse: PropTypes.bool,
+  children: PropTypes.node,
+};
 
 export default Feature;
