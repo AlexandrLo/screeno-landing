@@ -38079,7 +38079,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function index() {
+function Gallery() {
   // Get all video thumbnails
   var req = __webpack_require__("./src/assets/thumbnails sync \\.png$");
 
@@ -38110,7 +38110,7 @@ function index() {
   }))));
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Gallery);
 
 /***/ }),
 
