@@ -1,58 +1,91 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
+
+import PropTypes from "prop-types";
+import { useDebouncedCallback } from "use-debounce";
 import { Box, HStack, Image } from "@chakra-ui/react";
 import {
   motion,
-  useViewportScroll,
-  useTransform,
-  useSpring,
   useReducedMotion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
 } from "framer-motion";
 
 function ImageCarousel({ images, reverse = false, ...props }) {
+  // Disable motion if reduce motion enabled
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return (
+      <Box overflowX="clip" {...props}>
+        <HStack
+          spacing={["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]}
+          justifyContent="center"
+          pl={
+            reverse
+              ? "0"
+              : ["80px", "100px", "120px", "140px", "160px", "180px"]
+          }
+          pr={
+            !reverse
+              ? "0"
+              : ["80px", "100px", "120px", "140px", "160px", "180px"]
+          }
+        >
+          {images.map((image, index) => (
+            <Image
+              w={["160px", "200px", "240px", "280px", "320px", "360px"]}
+              borderRadius={["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]}
+              key={`image-${index}`}
+              src={image}
+            />
+          ))}
+        </HStack>
+      </Box>
+    );
+  }
+
   const [elementY, setElementY] = useState(0);
   const [elementWidth, setElementWidth] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);
   const [clientWidth, setClientWidth] = useState(0);
-
+  const { scrollY } = useViewportScroll();
   const ref = useRef();
 
-  const onResize = () => {
+  const setDimensions = () => {
     setElementY(
       ref.current.getBoundingClientRect().top + window.scrollY ||
         window.pageYOffset,
     );
-    console.log(ref.current.scrollWidth);
     setClientHeight(window.innerHeight);
     setClientWidth(window.innerWidth);
-    setTimeout(() => {
-      setElementWidth(ref.current.scrollWidth);
-    }, 1000);
+    setElementWidth(ref.current.scrollWidth);
   };
 
   useLayoutEffect(() => {
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    setDimensions();
+    window.addEventListener("resize", setDimensions);
+    return () => window.removeEventListener("resize", setDimensions);
   }, [ref]);
 
-  const { scrollY } = useViewportScroll();
-
-  const initialScroll = elementY - clientHeight;
-  const finalScroll = elementY + clientHeight;
-  const initialTransform = 0;
-  const finalTransform = -elementWidth + clientWidth;
-  const transformRange = [initialTransform, finalTransform];
+  const scrollRange = [elementY - clientHeight, elementY + clientHeight];
+  const transformRange = [0, -elementWidth + clientWidth];
   const transform = useTransform(
     scrollY,
-    [initialScroll, finalScroll],
+    scrollRange,
     reverse ? transformRange.reverse() : transformRange,
   );
-  const x = useSpring(transform, { stiffness: 400, damping: 90 });
+  const transformSpring = useSpring(transform, { stiffness: 400, damping: 90 });
 
   return (
-    <Box overflowX="clip">
-      <motion.div ref={ref} style={{ x }}>
-        <HStack spacing={["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]}>
+    <Box overflowX="clip" {...props}>
+      <motion.div ref={ref} style={{ x: transformSpring }}>
+        <HStack
+          spacing={["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]}
+          onLoad={useDebouncedCallback(() => {
+            setElementWidth(ref.current.scrollWidth);
+          }, 1000)}
+        >
           {images.map((image, index) => (
             <Image
               w={["160px", "200px", "240px", "280px", "320px", "360px"]}
@@ -66,5 +99,10 @@ function ImageCarousel({ images, reverse = false, ...props }) {
     </Box>
   );
 }
+
+ImageCarousel.propTypes = {
+  images: PropTypes.array,
+  reverse: PropTypes.bool,
+};
 
 export default ImageCarousel;
