@@ -38554,12 +38554,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var use_debounce__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! use-debounce */ "./node_modules/use-debounce/esm/useDebouncedCallback.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/utils/use-reduced-motion.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
 var _excluded = ["images", "reverse"];
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -38574,9 +38578,13 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
 
 
 
@@ -38587,6 +38595,27 @@ function ImageCarousel(_ref) {
       _ref$reverse = _ref.reverse,
       reverse = _ref$reverse === void 0 ? false : _ref$reverse,
       props = _objectWithoutProperties(_ref, _excluded);
+
+  // Disable motion if reduce motion enabled
+  var prefersReducedMotion = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useReducedMotion)();
+
+  if (prefersReducedMotion) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, _extends({
+      overflowX: "clip"
+    }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.HStack, {
+      spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
+      justifyContent: "center",
+      pl: reverse ? "0" : ["80px", "100px", "120px", "140px", "160px", "180px"],
+      pr: !reverse ? "0" : ["80px", "100px", "120px", "140px", "160px", "180px"]
+    }, images.map(function (image, index) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Image, {
+        w: ["160px", "200px", "240px", "280px", "320px", "360px"],
+        borderRadius: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
+        key: "image-".concat(index),
+        src: image
+      });
+    })));
+  }
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -38608,50 +38637,46 @@ function ImageCarousel(_ref) {
       clientWidth = _useState8[0],
       setClientWidth = _useState8[1];
 
+  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_4__.useViewportScroll)(),
+      scrollY = _useViewportScroll.scrollY;
+
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var onResize = function onResize() {
+  var setDimensions = function setDimensions() {
     setElementY(ref.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
-    console.log(ref.current.scrollWidth);
     setClientHeight(window.innerHeight);
     setClientWidth(window.innerWidth);
-    setTimeout(function () {
-      setElementWidth(ref.current.scrollWidth);
-    }, 1000);
+    setElementWidth(ref.current.scrollWidth);
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
-    onResize();
-    window.addEventListener("resize", onResize);
+    setDimensions();
+    window.addEventListener("resize", setDimensions);
     return function () {
-      return window.removeEventListener("resize", onResize);
+      return window.removeEventListener("resize", setDimensions);
     };
   }, [ref]);
-
-  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useViewportScroll)(),
-      scrollY = _useViewportScroll.scrollY;
-
-  var initialScroll = elementY - clientHeight;
-  var finalScroll = elementY + clientHeight;
-  var initialTransform = 0;
-  var finalTransform = -elementWidth + clientWidth;
-  var transformRange = [initialTransform, finalTransform];
-  var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_2__.useTransform)(scrollY, [initialScroll, finalScroll], reverse ? transformRange.reverse() : transformRange);
-  var x = (0,framer_motion__WEBPACK_IMPORTED_MODULE_3__.useSpring)(transform, {
+  var scrollRange = [elementY - clientHeight, elementY + clientHeight];
+  var transformRange = [0, -elementWidth + clientWidth];
+  var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_5__.useTransform)(scrollY, scrollRange, reverse ? transformRange.reverse() : transformRange);
+  var transformSpring = (0,framer_motion__WEBPACK_IMPORTED_MODULE_6__.useSpring)(transform, {
     stiffness: 400,
     damping: 90
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Box, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, _extends({
     overflowX: "clip"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_5__.motion.div, {
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_7__.motion.div, {
     ref: ref,
     style: {
-      x: x
+      x: transformSpring
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.HStack, {
-    spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.HStack, {
+    spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
+    onLoad: (0,use_debounce__WEBPACK_IMPORTED_MODULE_8__["default"])(function () {
+      setElementWidth(ref.current.scrollWidth);
+    }, 1000)
   }, images.map(function (image, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Image, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Image, {
       w: ["160px", "200px", "240px", "280px", "320px", "360px"],
       borderRadius: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
       key: "image-".concat(index),
@@ -38660,6 +38685,10 @@ function ImageCarousel(_ref) {
   }))));
 }
 
+ImageCarousel.propTypes = {
+  images: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().array),
+  reverse: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageCarousel);
 
 /***/ }),
@@ -81361,6 +81390,223 @@ function useCallbackRef(initialValue, callback) {
     // update callback
     ref.callback = callback;
     return ref.facade;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/use-debounce/esm/useDebouncedCallback.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/use-debounce/esm/useDebouncedCallback.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ useDebouncedCallback)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked, or until the next browser frame is drawn. The debounced function
+ * comes with a `cancel` method to cancel delayed `func` invocations and a
+ * `flush` method to immediately invoke them. Provide `options` to indicate
+ * whether `func` should be invoked on the leading and/or trailing edge of the
+ * `wait` timeout. The `func` is invoked with the last arguments provided to the
+ * debounced function. Subsequent calls to the debounced function return the
+ * result of the last `func` invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * If `wait` is omitted in an environment with `requestAnimationFrame`, `func`
+ * invocation will be deferred until the next frame is drawn (typically about
+ * 16ms).
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `debounce` and `throttle`.
+ *
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0]
+ *  The number of milliseconds to delay; if omitted, `requestAnimationFrame` is
+ *  used (if available, otherwise it will be setTimeout(...,0)).
+ * @param {Object} [options={}] The options object.
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {boolean} [options.leading=false]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {number} [options.maxWait]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @param {boolean} [options.trailing=true]
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * const resizeHandler = useDebouncedCallback(calculateLayout, 150);
+ * window.addEventListener('resize', resizeHandler)
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * const clickHandler = useDebouncedCallback(sendMail, 300, {
+ *   leading: true,
+ *   trailing: false,
+ * })
+ * <button onClick={clickHandler}>click me</button>
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * const debounced = useDebouncedCallback(batchLog, 250, { 'maxWait': 1000 })
+ * const source = new EventSource('/stream')
+ * source.addEventListener('message', debounced)
+ *
+ * // Cancel the trailing debounced invocation.
+ * window.addEventListener('popstate', debounced.cancel)
+ *
+ * // Check for pending invocations.
+ * const status = debounced.pending() ? "Pending..." : "Ready"
+ */
+function useDebouncedCallback(func, wait, options) {
+    var _this = this;
+    var lastCallTime = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    var lastInvokeTime = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+    var timerId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    var lastArgs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
+    var lastThis = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+    var result = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+    var funcRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(func);
+    var mounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
+    funcRef.current = func;
+    // Bypass `requestAnimationFrame` by explicitly setting `wait=0`.
+    var useRAF = !wait && wait !== 0 && typeof window !== 'undefined';
+    if (typeof func !== 'function') {
+        throw new TypeError('Expected a function');
+    }
+    wait = +wait || 0;
+    options = options || {};
+    var leading = !!options.leading;
+    var trailing = 'trailing' in options ? !!options.trailing : true; // `true` by default
+    var maxing = 'maxWait' in options;
+    var maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : null;
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+        mounted.current = true;
+        return function () {
+            mounted.current = false;
+        };
+    }, []);
+    // You may have a question, why we have so many code under the useMemo definition.
+    //
+    // This was made as we want to escape from useCallback hell and
+    // not to initialize a number of functions each time useDebouncedCallback is called.
+    //
+    // It means that we have less garbage for our GC calls which improves performance.
+    // Also, it makes this library smaller.
+    //
+    // And the last reason, that the code without lots of useCallback with deps is easier to read.
+    // You have only one place for that.
+    var debounced = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+        var invokeFunc = function (time) {
+            var args = lastArgs.current;
+            var thisArg = lastThis.current;
+            lastArgs.current = lastThis.current = null;
+            lastInvokeTime.current = time;
+            return (result.current = funcRef.current.apply(thisArg, args));
+        };
+        var startTimer = function (pendingFunc, wait) {
+            if (useRAF)
+                cancelAnimationFrame(timerId.current);
+            timerId.current = useRAF ? requestAnimationFrame(pendingFunc) : setTimeout(pendingFunc, wait);
+        };
+        var shouldInvoke = function (time) {
+            if (!mounted.current)
+                return false;
+            var timeSinceLastCall = time - lastCallTime.current;
+            var timeSinceLastInvoke = time - lastInvokeTime.current;
+            // Either this is the first call, activity has stopped and we're at the
+            // trailing edge, the system time has gone backwards and we're treating
+            // it as the trailing edge, or we've hit the `maxWait` limit.
+            return (!lastCallTime.current ||
+                timeSinceLastCall >= wait ||
+                timeSinceLastCall < 0 ||
+                (maxing && timeSinceLastInvoke >= maxWait));
+        };
+        var trailingEdge = function (time) {
+            timerId.current = null;
+            // Only invoke if we have `lastArgs` which means `func` has been
+            // debounced at least once.
+            if (trailing && lastArgs.current) {
+                return invokeFunc(time);
+            }
+            lastArgs.current = lastThis.current = null;
+            return result.current;
+        };
+        var timerExpired = function () {
+            var time = Date.now();
+            if (shouldInvoke(time)) {
+                return trailingEdge(time);
+            }
+            // https://github.com/xnimorz/use-debounce/issues/97
+            if (!mounted.current) {
+                return;
+            }
+            // Remaining wait calculation
+            var timeSinceLastCall = time - lastCallTime.current;
+            var timeSinceLastInvoke = time - lastInvokeTime.current;
+            var timeWaiting = wait - timeSinceLastCall;
+            var remainingWait = maxing ? Math.min(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+            // Restart the timer
+            startTimer(timerExpired, remainingWait);
+        };
+        var func = function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            var time = Date.now();
+            var isInvoking = shouldInvoke(time);
+            lastArgs.current = args;
+            lastThis.current = _this;
+            lastCallTime.current = time;
+            if (isInvoking) {
+                if (!timerId.current && mounted.current) {
+                    // Reset any `maxWait` timer.
+                    lastInvokeTime.current = lastCallTime.current;
+                    // Start the timer for the trailing edge.
+                    startTimer(timerExpired, wait);
+                    // Invoke the leading edge.
+                    return leading ? invokeFunc(lastCallTime.current) : result.current;
+                }
+                if (maxing) {
+                    // Handle invocations in a tight loop.
+                    startTimer(timerExpired, wait);
+                    return invokeFunc(lastCallTime.current);
+                }
+            }
+            if (!timerId.current) {
+                startTimer(timerExpired, wait);
+            }
+            return result.current;
+        };
+        func.cancel = function () {
+            if (timerId.current) {
+                useRAF ? cancelAnimationFrame(timerId.current) : clearTimeout(timerId.current);
+            }
+            lastInvokeTime.current = 0;
+            lastArgs.current = lastCallTime.current = lastThis.current = timerId.current = null;
+        };
+        func.isPending = function () {
+            return !!timerId.current;
+        };
+        func.flush = function () {
+            return !timerId.current ? result.current : trailingEdge(Date.now());
+        };
+        return func;
+    }, [leading, maxing, wait, maxWait, trailing, useRAF]);
+    return debounced;
 }
 
 
