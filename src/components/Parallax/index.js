@@ -15,6 +15,7 @@ function Parallax({
   offset = { base: 15, md: 25, xl: 50 },
   motionDirection = "y",
   scrollDirection = "y",
+  spring = true,
   ...props
 }) {
   // Disable motion if reduce motion enabled
@@ -65,11 +66,14 @@ function Parallax({
     [initial, final],
     [responsiveOffset, -responsiveOffset],
   );
-  const coordinate = useSpring(transform, { stiffness: 400, damping: 90 });
+  const transformSpring = useSpring(transform, { stiffness: 400, damping: 90 });
 
   return (
     <Box {...props}>
-      <motion.div ref={ref} style={{ [motionDirection]: coordinate }}>
+      <motion.div
+        ref={ref}
+        style={{ [motionDirection]: spring ? transformSpring : transform }}
+      >
         {children}
       </motion.div>
     </Box>
@@ -81,6 +85,7 @@ Parallax.propTypes = {
   offset: PropTypes.number,
   motionDirection: PropTypes.oneOf(["x", "y"]),
   scrollDirection: PropTypes.oneOf(["x", "y"]),
+  spring: PropTypes.bool,
 };
 
 export default Parallax;
