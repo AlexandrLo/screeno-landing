@@ -38685,7 +38685,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
-var _excluded = ["children", "offset", "motionDirection", "scrollDirection"];
+var _excluded = ["children", "offset", "motionDirection", "scrollDirection", "spring"];
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -38724,6 +38724,8 @@ function Parallax(_ref) {
       motionDirection = _ref$motionDirection === void 0 ? "y" : _ref$motionDirection,
       _ref$scrollDirection = _ref.scrollDirection,
       scrollDirection = _ref$scrollDirection === void 0 ? "y" : _ref$scrollDirection,
+      _ref$spring = _ref.spring,
+      spring = _ref$spring === void 0 ? true : _ref$spring,
       props = _objectWithoutProperties(_ref, _excluded);
 
   // Disable motion if reduce motion enabled
@@ -38781,13 +38783,13 @@ function Parallax(_ref) {
   var _final = elementCoord + responsiveOffset;
 
   var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_5__.useTransform)(scrollDirection === "y" ? scrollY : scrollX, [initial, _final], [responsiveOffset, -responsiveOffset]);
-  var coordinate = (0,framer_motion__WEBPACK_IMPORTED_MODULE_6__.useSpring)(transform, {
+  var transformSpring = (0,framer_motion__WEBPACK_IMPORTED_MODULE_6__.useSpring)(transform, {
     stiffness: 400,
     damping: 90
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_7__.motion.div, {
     ref: ref,
-    style: _defineProperty({}, motionDirection, coordinate)
+    style: _defineProperty({}, motionDirection, spring ? transformSpring : transform)
   }, children));
 }
 
@@ -38795,7 +38797,8 @@ Parallax.propTypes = {
   children: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().node),
   offset: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().number),
   motionDirection: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(["x", "y"]),
-  scrollDirection: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(["x", "y"])
+  scrollDirection: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(["x", "y"]),
+  spring: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Parallax);
 
