@@ -37449,10 +37449,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
     path: "",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(containers_HomePage__WEBPACK_IMPORTED_MODULE_1__["default"], null)
-  })));
+  }));
 }
 
 /***/ }),
@@ -39090,11 +39090,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
 /* harmony import */ var _fontsource_mulish_variable_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fontsource/mulish/variable.css */ "./node_modules/@fontsource/mulish/variable.css");
-/* harmony import */ var theme_components_Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! theme/components/Container */ "./src/theme/components/Container.js");
-/* harmony import */ var theme_components_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! theme/components/Button */ "./src/theme/components/Button.js");
-/* harmony import */ var theme_components_Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme/components/Link */ "./src/theme/components/Link.js");
-/* harmony import */ var theme_components_Heading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! theme/components/Heading */ "./src/theme/components/Heading.js");
-/* harmony import */ var theme_components_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! theme/components/Input */ "./src/theme/components/Input.js");
+/* harmony import */ var theme_components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! theme/components/Button */ "./src/theme/components/Button.js");
+/* harmony import */ var theme_components_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! theme/components/Container */ "./src/theme/components/Container.js");
+/* harmony import */ var theme_components_Heading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme/components/Heading */ "./src/theme/components/Heading.js");
+/* harmony import */ var theme_components_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! theme/components/Input */ "./src/theme/components/Input.js");
+/* harmony import */ var theme_components_Link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! theme/components/Link */ "./src/theme/components/Link.js");
 /* harmony import */ var theme_components_Textarea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! theme/components/Textarea */ "./src/theme/components/Textarea.js");
 
 
@@ -39105,10 +39105,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.extendTheme)({
-  config: {
-    initialColorMode: "light",
-    useSystemColorMode: false
-  },
   fonts: {
     heading: "MulishVariable",
     body: "MulishVariable"
@@ -39148,11 +39144,11 @@ var theme = (0,_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.extendTheme)({
     }
   },
   components: {
-    Container: theme_components_Container__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Button: theme_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Link: theme_components_Link__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Heading: theme_components_Heading__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Input: theme_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Container: theme_components_Container__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Button: theme_components_Button__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Link: theme_components_Link__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Heading: theme_components_Heading__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Input: theme_components_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
     Textarea: theme_components_Textarea__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 });
@@ -96879,10 +96875,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/react/dist/chakra-ui-react.esm.js");
-/* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! theme */ "./src/theme/index.js");
 
 
 
@@ -96890,8 +96886,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.ChakraProvider, {
-  theme: theme__WEBPACK_IMPORTED_MODULE_2__["default"]
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], null)))), document.getElementById("root"));
+  theme: theme__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null)))), document.getElementById("root"));
 })();
 
 /******/ })()
