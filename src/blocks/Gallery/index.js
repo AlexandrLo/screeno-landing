@@ -4,7 +4,7 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 
 import ImageCarousel from "components/ImageCarousel";
 
-function index() {
+function Gallery() {
   // Get all video thumbnails
   var req = require.context("assets/thumbnails", false, /\.png$/);
   const images = req.keys().map(req);
@@ -33,4 +33,4 @@ function index() {
   );
 }
 
-export default index;
+export default Gallery;
