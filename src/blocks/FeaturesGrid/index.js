@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Broadcast,
@@ -12,40 +12,40 @@ import { Container, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
 import FeatureCell from "./FeatureCell";
 
-function FeaturesGrid() {
-  const [features] = useState([
-    {
-      icon: <UploadSimple />,
-      heading: "Upload & Organize",
-      text: "Upload in bulk, organize content in categories, add custom filters & upload extras",
-    },
-    {
-      icon: <VideoCamera />,
-      heading: "Stream On-Demand",
-      text: "Showcase your content in a beautiful on-demand video catalog.",
-    },
-    {
-      icon: <Broadcast />,
-      heading: "Stream Live",
-      text: "Schedule events in advance & build excitement with a countdown overlay.",
-    },
-    {
-      icon: <CurrencyCircleDollar />,
-      heading: "Monetization",
-      text: "Offer subscriptions or one-time purchases. Accept credit cards & PayPal.",
-    },
-    {
-      icon: <ChartLine />,
-      heading: "Analytics",
-      text: "Know what your audience likes & how your content is performing.",
-    },
-    {
-      icon: <DesktopTower />,
-      heading: "For all devices",
-      text: "Get organized on all devices",
-    },
-  ]);
+const features = [
+  {
+    icon: <UploadSimple />,
+    heading: "Upload & Organize",
+    text: "Upload in bulk, organize content in categories, add custom filters & upload extras",
+  },
+  {
+    icon: <VideoCamera />,
+    heading: "Stream On-Demand",
+    text: "Showcase your content in a beautiful on-demand video catalog.",
+  },
+  {
+    icon: <Broadcast />,
+    heading: "Stream Live",
+    text: "Schedule events in advance & build excitement with a countdown overlay.",
+  },
+  {
+    icon: <CurrencyCircleDollar />,
+    heading: "Monetization",
+    text: "Offer subscriptions or one-time purchases. Accept credit cards & PayPal.",
+  },
+  {
+    icon: <ChartLine />,
+    heading: "Analytics",
+    text: "Know what your audience likes & how your content is performing.",
+  },
+  {
+    icon: <DesktopTower />,
+    heading: "For all devices",
+    text: "Get organized on all devices",
+  },
+];
 
+function FeaturesGrid() {
   return (
     <Container
       maxW={{ base: "container.sm", xl: "container.xl" }}
