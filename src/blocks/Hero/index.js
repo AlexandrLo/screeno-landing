@@ -14,8 +14,6 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 
-import HeroImageBig from "assets/hero-image-big.png";
-import HeroImageSmall from "assets/hero-image-small.png";
 import HoverBadge from "components/HoverBadge";
 import Parallax from "components/Parallax";
 
@@ -64,14 +62,17 @@ function Hero() {
           {/* Image */}
           <Box w="100%" maxW="543px" p={{ base: "1rem", md: "0" }}>
             <Box position="relative">
-              <Image src={HeroImageBig} alt="Hero image" />
+              <Image
+                src="assets/images/hero/hero-image-big.png"
+                alt="Hero image"
+              />
               <HoverBadge position="absolute" right="-1rem" top="-1rem">
                 <Circle size="6px" bg="red" />
                 <Text>Live</Text>
               </HoverBadge>
               <Parallax position="absolute" left="-1rem" bottom="-2.5rem">
                 <Image
-                  src={HeroImageSmall}
+                  src="assets/images/hero/hero-image-small.png"
                   maxW={["7rem", "8rem", "10rem", "15rem", "auto"]}
                   shadow="2xl"
                   alt="Hero image"

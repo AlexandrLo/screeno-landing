@@ -21,7 +21,7 @@ import {
   Phone,
 } from "phosphor-react";
 
-import LogoBlack from "assets/logo-black.svg";
+import LogoBlack from "assets/images/brand-logo/logo-black.svg";
 
 function Footer() {
   const [blue400] = useToken("colors", ["blue.400"]);

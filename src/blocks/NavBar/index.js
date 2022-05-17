@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Box, Button, Container, HStack, Link, Show } from "@chakra-ui/react";
 
-import LogoWhite from "assets/logo-white.svg";
+import LogoWhite from "assets/images/brand-logo/logo-white.svg";
 import MobileNav from "./MobileNav";
 
 function NavBar() {

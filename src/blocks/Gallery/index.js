@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 
 import ImageCarousel from "components/ImageCarousel";
+import previewsData from "assets/json/video-previews.json";
 
 function Gallery() {
-  // Get all video thumbnails
-  var req = require.context("assets/thumbnails", false, /\.png$/);
-  const images = req.keys().map(req);
+  const [previewRows, setPreviewRows] = useState([[], []]);
+
+  useEffect(() => {
+    // Slice video previews data in two rows
+    setPreviewRows([
+      previewsData.slice(0, Math.floor(previewsData.length / 2)),
+      previewsData.slice(Math.floor(previewsData.length / 2)),
+    ]);
+  }, []);
 
   return (
     <Box py={{ base: "3rem", md: "6.5rem" }}>
@@ -19,14 +26,8 @@ function Gallery() {
           <Text>Watch your favorite content on our platform</Text>
         </VStack>
         <VStack spacing={["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"]}>
-          <ImageCarousel
-            reverse={false}
-            images={images.slice(0, Math.floor(images.length / 2))}
-          />
-          <ImageCarousel
-            reverse={true}
-            images={images.slice(Math.floor(images.length / 2))}
-          />
+          <ImageCarousel reverse={false} images={previewRows[0]} />
+          <ImageCarousel reverse={true} images={previewRows[1]} />
         </VStack>
       </VStack>
     </Box>
