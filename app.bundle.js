@@ -31561,7 +31561,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var pkg = {
 	name: "@emotion/react",
-	version: "11.8.2",
+	version: "11.9.0",
 	main: "dist/emotion-react.cjs.js",
 	module: "dist/emotion-react.esm.js",
 	browser: {
@@ -31590,7 +31590,7 @@ var pkg = {
 		"@babel/runtime": "^7.13.10",
 		"@emotion/babel-plugin": "^11.7.1",
 		"@emotion/cache": "^11.7.1",
-		"@emotion/serialize": "^1.0.2",
+		"@emotion/serialize": "^1.0.3",
 		"@emotion/utils": "^1.1.0",
 		"@emotion/weak-memoize": "^0.2.5",
 		"hoist-non-react-statics": "^3.3.1"
@@ -31609,7 +31609,7 @@ var pkg = {
 	},
 	devDependencies: {
 		"@babel/core": "^7.13.10",
-		"@emotion/css": "11.7.1",
+		"@emotion/css": "11.9.0",
 		"@emotion/css-prettifier": "1.0.1",
 		"@emotion/server": "11.4.0",
 		"@emotion/styled": "11.8.1",
@@ -31972,7 +31972,7 @@ var processStyleValue = function processStyleValue(key, value) {
 };
 
 if (true) {
-  var contentValuePattern = /(attr|counters?|url|(((repeating-)?(linear|radial))|conic)-gradient)\(|(no-)?(open|close)-quote/;
+  var contentValuePattern = /(var|attr|counters?|url|(((repeating-)?(linear|radial))|conic)-gradient)\(|(no-)?(open|close)-quote/;
   var contentValues = ['normal', 'none', 'initial', 'inherit', 'unset'];
   var oldProcessStyleValue = processStyleValue;
   var msPattern = /^-ms-/;
@@ -38556,7 +38556,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var use_debounce__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! use-debounce */ "./node_modules/use-debounce/esm/useDebouncedCallback.js");
+/* harmony import */ var use_debounce__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! use-debounce */ "./node_modules/use-debounce/dist/index.module.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
 /* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/utils/use-reduced-motion.mjs");
@@ -38672,7 +38672,7 @@ function ImageCarousel(_ref) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.HStack, {
     spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
-    onLoad: (0,use_debounce__WEBPACK_IMPORTED_MODULE_8__["default"])(function () {
+    onLoad: (0,use_debounce__WEBPACK_IMPORTED_MODULE_8__.useDebouncedCallback)(function () {
       setElementWidth(ref.current.scrollWidth);
     }, 1000)
   }, images.map(function (image, index) {
@@ -81391,219 +81391,22 @@ function useCallbackRef(initialValue, callback) {
 
 /***/ }),
 
-/***/ "./node_modules/use-debounce/esm/useDebouncedCallback.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/use-debounce/esm/useDebouncedCallback.js ***!
-  \***************************************************************/
+/***/ "./node_modules/use-debounce/dist/index.module.js":
+/*!********************************************************!*\
+  !*** ./node_modules/use-debounce/dist/index.module.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ useDebouncedCallback)
+/* harmony export */   "useDebounce": () => (/* binding */ o),
+/* harmony export */   "useDebouncedCallback": () => (/* binding */ c),
+/* harmony export */   "useThrottledCallback": () => (/* binding */ f)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-/**
- * Creates a debounced function that delays invoking `func` until after `wait`
- * milliseconds have elapsed since the last time the debounced function was
- * invoked, or until the next browser frame is drawn. The debounced function
- * comes with a `cancel` method to cancel delayed `func` invocations and a
- * `flush` method to immediately invoke them. Provide `options` to indicate
- * whether `func` should be invoked on the leading and/or trailing edge of the
- * `wait` timeout. The `func` is invoked with the last arguments provided to the
- * debounced function. Subsequent calls to the debounced function return the
- * result of the last `func` invocation.
- *
- * **Note:** If `leading` and `trailing` options are `true`, `func` is
- * invoked on the trailing edge of the timeout only if the debounced function
- * is invoked more than once during the `wait` timeout.
- *
- * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
- * until the next tick, similar to `setTimeout` with a timeout of `0`.
- *
- * If `wait` is omitted in an environment with `requestAnimationFrame`, `func`
- * invocation will be deferred until the next frame is drawn (typically about
- * 16ms).
- *
- * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
- * for details over the differences between `debounce` and `throttle`.
- *
- * @category Function
- * @param {Function} func The function to debounce.
- * @param {number} [wait=0]
- *  The number of milliseconds to delay; if omitted, `requestAnimationFrame` is
- *  used (if available, otherwise it will be setTimeout(...,0)).
- * @param {Object} [options={}] The options object.
- *  Specify invoking on the leading edge of the timeout.
- * @param {boolean} [options.leading=false]
- *  The maximum time `func` is allowed to be delayed before it's invoked.
- * @param {number} [options.maxWait]
- *  Specify invoking on the trailing edge of the timeout.
- * @param {boolean} [options.trailing=true]
- * @returns {Function} Returns the new debounced function.
- * @example
- *
- * // Avoid costly calculations while the window size is in flux.
- * const resizeHandler = useDebouncedCallback(calculateLayout, 150);
- * window.addEventListener('resize', resizeHandler)
- *
- * // Invoke `sendMail` when clicked, debouncing subsequent calls.
- * const clickHandler = useDebouncedCallback(sendMail, 300, {
- *   leading: true,
- *   trailing: false,
- * })
- * <button onClick={clickHandler}>click me</button>
- *
- * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
- * const debounced = useDebouncedCallback(batchLog, 250, { 'maxWait': 1000 })
- * const source = new EventSource('/stream')
- * source.addEventListener('message', debounced)
- *
- * // Cancel the trailing debounced invocation.
- * window.addEventListener('popstate', debounced.cancel)
- *
- * // Check for pending invocations.
- * const status = debounced.pending() ? "Pending..." : "Ready"
- */
-function useDebouncedCallback(func, wait, options) {
-    var _this = this;
-    var lastCallTime = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-    var lastInvokeTime = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
-    var timerId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-    var lastArgs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
-    var lastThis = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-    var result = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-    var funcRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(func);
-    var mounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
-    funcRef.current = func;
-    // Bypass `requestAnimationFrame` by explicitly setting `wait=0`.
-    var useRAF = !wait && wait !== 0 && typeof window !== 'undefined';
-    if (typeof func !== 'function') {
-        throw new TypeError('Expected a function');
-    }
-    wait = +wait || 0;
-    options = options || {};
-    var leading = !!options.leading;
-    var trailing = 'trailing' in options ? !!options.trailing : true; // `true` by default
-    var maxing = 'maxWait' in options;
-    var maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : null;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-        mounted.current = true;
-        return function () {
-            mounted.current = false;
-        };
-    }, []);
-    // You may have a question, why we have so many code under the useMemo definition.
-    //
-    // This was made as we want to escape from useCallback hell and
-    // not to initialize a number of functions each time useDebouncedCallback is called.
-    //
-    // It means that we have less garbage for our GC calls which improves performance.
-    // Also, it makes this library smaller.
-    //
-    // And the last reason, that the code without lots of useCallback with deps is easier to read.
-    // You have only one place for that.
-    var debounced = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
-        var invokeFunc = function (time) {
-            var args = lastArgs.current;
-            var thisArg = lastThis.current;
-            lastArgs.current = lastThis.current = null;
-            lastInvokeTime.current = time;
-            return (result.current = funcRef.current.apply(thisArg, args));
-        };
-        var startTimer = function (pendingFunc, wait) {
-            if (useRAF)
-                cancelAnimationFrame(timerId.current);
-            timerId.current = useRAF ? requestAnimationFrame(pendingFunc) : setTimeout(pendingFunc, wait);
-        };
-        var shouldInvoke = function (time) {
-            if (!mounted.current)
-                return false;
-            var timeSinceLastCall = time - lastCallTime.current;
-            var timeSinceLastInvoke = time - lastInvokeTime.current;
-            // Either this is the first call, activity has stopped and we're at the
-            // trailing edge, the system time has gone backwards and we're treating
-            // it as the trailing edge, or we've hit the `maxWait` limit.
-            return (!lastCallTime.current ||
-                timeSinceLastCall >= wait ||
-                timeSinceLastCall < 0 ||
-                (maxing && timeSinceLastInvoke >= maxWait));
-        };
-        var trailingEdge = function (time) {
-            timerId.current = null;
-            // Only invoke if we have `lastArgs` which means `func` has been
-            // debounced at least once.
-            if (trailing && lastArgs.current) {
-                return invokeFunc(time);
-            }
-            lastArgs.current = lastThis.current = null;
-            return result.current;
-        };
-        var timerExpired = function () {
-            var time = Date.now();
-            if (shouldInvoke(time)) {
-                return trailingEdge(time);
-            }
-            // https://github.com/xnimorz/use-debounce/issues/97
-            if (!mounted.current) {
-                return;
-            }
-            // Remaining wait calculation
-            var timeSinceLastCall = time - lastCallTime.current;
-            var timeSinceLastInvoke = time - lastInvokeTime.current;
-            var timeWaiting = wait - timeSinceLastCall;
-            var remainingWait = maxing ? Math.min(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
-            // Restart the timer
-            startTimer(timerExpired, remainingWait);
-        };
-        var func = function () {
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
-            }
-            var time = Date.now();
-            var isInvoking = shouldInvoke(time);
-            lastArgs.current = args;
-            lastThis.current = _this;
-            lastCallTime.current = time;
-            if (isInvoking) {
-                if (!timerId.current && mounted.current) {
-                    // Reset any `maxWait` timer.
-                    lastInvokeTime.current = lastCallTime.current;
-                    // Start the timer for the trailing edge.
-                    startTimer(timerExpired, wait);
-                    // Invoke the leading edge.
-                    return leading ? invokeFunc(lastCallTime.current) : result.current;
-                }
-                if (maxing) {
-                    // Handle invocations in a tight loop.
-                    startTimer(timerExpired, wait);
-                    return invokeFunc(lastCallTime.current);
-                }
-            }
-            if (!timerId.current) {
-                startTimer(timerExpired, wait);
-            }
-            return result.current;
-        };
-        func.cancel = function () {
-            if (timerId.current) {
-                useRAF ? cancelAnimationFrame(timerId.current) : clearTimeout(timerId.current);
-            }
-            lastInvokeTime.current = 0;
-            lastArgs.current = lastCallTime.current = lastThis.current = timerId.current = null;
-        };
-        func.isPending = function () {
-            return !!timerId.current;
-        };
-        func.flush = function () {
-            return !timerId.current ? result.current : trailingEdge(Date.now());
-        };
-        return func;
-    }, [leading, maxing, wait, maxWait, trailing, useRAF]);
-    return debounced;
-}
+function c(u,e,c){var i=this,a=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),o=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0),f=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),l=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]),m=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(),v=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(),d=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(u),p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(!0);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function(){d.current=u},[u]);var g=!e&&0!==e&&"undefined"!=typeof window;if("function"!=typeof u)throw new TypeError("Expected a function");e=+e||0;var w=!!(c=c||{}).leading,s=!("trailing"in c)||!!c.trailing,x="maxWait"in c,y=x?Math.max(+c.maxWait||0,e):null;(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function(){return p.current=!0,function(){p.current=!1}},[]);var h=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function(){var r=function(r){var n=l.current,t=m.current;return l.current=m.current=null,o.current=r,v.current=d.current.apply(t,n)},n=function(r,n){g&&cancelAnimationFrame(f.current),f.current=g?requestAnimationFrame(r):setTimeout(r,n)},t=function(r){if(!p.current)return!1;var n=r-a.current;return!a.current||n>=e||n<0||x&&r-o.current>=y},u=function(n){return f.current=null,s&&l.current?r(n):(l.current=m.current=null,v.current)},c=function r(){var c=Date.now();if(t(c))return u(c);if(p.current){var i=e-(c-a.current),f=x?Math.min(i,y-(c-o.current)):i;n(r,f)}},h=function(){var u=Date.now(),d=t(u);if(l.current=[].slice.call(arguments),m.current=i,a.current=u,d){if(!f.current&&p.current)return o.current=a.current,n(c,e),w?r(a.current):v.current;if(x)return n(c,e),r(a.current)}return f.current||n(c,e),v.current};return h.cancel=function(){f.current&&(g?cancelAnimationFrame(f.current):clearTimeout(f.current)),o.current=0,l.current=a.current=m.current=f.current=null},h.isPending=function(){return!!f.current},h.flush=function(){return f.current?u(Date.now()):v.current},h},[w,x,e,y,s,g]);return h}function i(r,n){return r===n}function a(r){return"function"==typeof r?function(){return r}:r}function o(n,t,o){var f,l,m=o&&o.equalityFn||i,v=(f=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(a(n)),l=f[1],[f[0],(0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function(r){return l(a(r))},[])]),d=v[0],p=v[1],g=c((0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function(r){return p(r)},[p]),t,o),w=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(n);return m(w.current,n)||(g(n),w.current=n),[d,g]}function f(r,n,t){var u=void 0===t?{}:t,e=u.leading,i=u.trailing;return c(r,n,{maxWait:n,leading:void 0===e||e,trailing:void 0===i||i})}
+//# sourceMappingURL=index.module.js.map
 
 
 /***/ }),
@@ -83178,6 +82981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _context_LayoutGroupContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/LayoutGroupContext.mjs */ "./node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs");
 /* harmony import */ var _utils_use_isomorphic_effect_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/use-isomorphic-effect.mjs */ "./node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs");
 /* harmony import */ var _utils_use_unmount_effect_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/use-unmount-effect.mjs */ "./node_modules/framer-motion/dist/es/utils/use-unmount-effect.mjs");
+
 
 
 
@@ -85470,6 +85274,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var featureNames = Object.keys(_definitions_mjs__WEBPACK_IMPORTED_MODULE_2__.featureDefinitions);
 var numFeatures = featureNames.length;
 /**
@@ -85644,6 +85449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _render_utils_types_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../render/utils/types.mjs */ "./node_modules/framer-motion/dist/es/render/utils/types.mjs");
 /* harmony import */ var _utils_warn_once_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../utils/warn-once.mjs */ "./node_modules/framer-motion/dist/es/utils/warn-once.mjs");
 /* harmony import */ var _observers_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./observers.mjs */ "./node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs");
+
 
 
 
@@ -86214,6 +86020,7 @@ var validMotionProps = new Set([
     "layout",
     "layoutId",
     "layoutDependency",
+    "onLayoutAnimationStart",
     "onLayoutAnimationComplete",
     "onLayoutMeasure",
     "onBeforeLayoutMeasure",
@@ -87154,7 +86961,7 @@ function createProjectionNode(_a) {
                     }
                     // TODO: Check here if an animation exists
                     var layoutTransition = (_c = (_b = _this.options.transition) !== null && _b !== void 0 ? _b : visualElement.getDefaultTransition()) !== null && _c !== void 0 ? _c : defaultLayoutTransition;
-                    var onLayoutAnimationComplete = visualElement.getProps().onLayoutAnimationComplete;
+                    var _g = visualElement.getProps(), onLayoutAnimationStart = _g.onLayoutAnimationStart, onLayoutAnimationComplete = _g.onLayoutAnimationComplete;
                     /**
                      * The target layout of the element might stay the same,
                      * but its position relative to its parent has changed.
@@ -87177,7 +86984,7 @@ function createProjectionNode(_a) {
                             _this.resumingFrom.resumingFrom = undefined;
                         }
                         _this.setAnimationOrigin(delta, hasOnlyRelativeTargetChanged);
-                        var animationOptions = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, (0,_animation_utils_transitions_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)(layoutTransition, "layout")), { onComplete: onLayoutAnimationComplete });
+                        var animationOptions = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, (0,_animation_utils_transitions_mjs__WEBPACK_IMPORTED_MODULE_5__.getValueTransition)(layoutTransition, "layout")), { onPlay: onLayoutAnimationStart, onComplete: onLayoutAnimationComplete });
                         if (visualElement.shouldReduceMotion) {
                             animationOptions.delay = 0;
                             animationOptions.type = false;
@@ -87710,6 +87517,7 @@ function createProjectionNode(_a) {
         ProjectionNode.prototype.startAnimation = function (options) {
             var _this = this;
             var _a, _b;
+            this.notifyListeners("animationStart");
             (_a = this.currentAnimation) === null || _a === void 0 ? void 0 : _a.stop();
             if (this.resumingFrom) {
                 (_b = this.resumingFrom.currentAnimation) === null || _b === void 0 ? void 0 : _b.stop();
@@ -90767,7 +90575,6 @@ var svgMotionConfig = {
                 };
             }
             (0,_utils_build_attrs_mjs__WEBPACK_IMPORTED_MODULE_3__.buildSVGAttrs)(renderState, latestValues, { enableHardwareAcceleration: false }, props.transformTemplate);
-            // TODO: Replace with direct assignment
             (0,_utils_render_mjs__WEBPACK_IMPORTED_MODULE_4__.renderSVG)(instance, renderState);
         },
     }),
@@ -91062,8 +90869,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function renderSVG(element, renderState) {
-    (0,_html_utils_render_mjs__WEBPACK_IMPORTED_MODULE_0__.renderHTML)(element, renderState);
+function renderSVG(element, renderState, _styleProp, projection) {
+    (0,_html_utils_render_mjs__WEBPACK_IMPORTED_MODULE_0__.renderHTML)(element, renderState, undefined, projection);
     for (var key in renderState.attrs) {
         element.setAttribute(!_camel_case_attrs_mjs__WEBPACK_IMPORTED_MODULE_1__.camelCaseAttributes.has(key) ? (0,_dom_utils_camel_to_dash_mjs__WEBPACK_IMPORTED_MODULE_2__.camelToDash)(key) : key, renderState.attrs[key]);
     }
@@ -91815,6 +91622,7 @@ var names = [
     "AnimationComplete",
     "LayoutAnimationComplete",
     "AnimationStart",
+    "LayoutAnimationStart",
     "SetAxisTarget",
     "Unmount",
 ];
@@ -92235,7 +92043,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "isBrowser": () => (/* binding */ isBrowser)
 /* harmony export */ });
-var isBrowser = typeof window !== "undefined";
+var isBrowser = typeof document !== "undefined";
 
 
 
@@ -92675,9 +92483,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "useReducedMotion": () => (/* binding */ useReducedMotion),
 /* harmony export */   "useReducedMotionConfig": () => (/* binding */ useReducedMotionConfig)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/MotionConfigContext.mjs */ "./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../context/MotionConfigContext.mjs */ "./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs");
+/* harmony import */ var _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./is-browser.mjs */ "./node_modules/framer-motion/dist/es/utils/is-browser.mjs");
+
 
 
 
@@ -92687,7 +92497,7 @@ var prefersReducedMotion = { current: null };
 var hasDetected = false;
 function initPrefersReducedMotion() {
     hasDetected = true;
-    if (typeof window === "undefined")
+    if (!_is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__.isBrowser)
         return;
     if (window.matchMedia) {
         var motionMediaQuery_1 = window.matchMedia("(prefers-reduced-motion)");
@@ -92732,7 +92542,7 @@ function useReducedMotion() {
      * Lazy initialisation of prefersReducedMotion
      */
     !hasDetected && initPrefersReducedMotion();
-    var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(prefersReducedMotion.current), 1), shouldReduceMotion = _a[0];
+    var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(prefersReducedMotion.current), 1), shouldReduceMotion = _a[0];
     /**
      * TODO See if people miss automatically updating shouldReduceMotion setting
      */
@@ -92740,7 +92550,7 @@ function useReducedMotion() {
 }
 function useReducedMotionConfig() {
     var reducedMotionPreference = useReducedMotion();
-    var reducedMotion = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_2__.MotionConfigContext).reducedMotion;
+    var reducedMotion = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_MotionConfigContext_mjs__WEBPACK_IMPORTED_MODULE_3__.MotionConfigContext).reducedMotion;
     if (reducedMotion === "never") {
         return false;
     }
@@ -93164,8 +92974,6 @@ function getViewportScrollOffsets() {
 var hasListeners = false;
 function addEventListeners() {
     hasListeners = true;
-    if (typeof window === "undefined")
-        return;
     var updateScrollValues = (0,_utils_mjs__WEBPACK_IMPORTED_MODULE_0__.createScrollUpdater)(viewportScrollValues, getViewportScrollOffsets);
     (0,_events_use_dom_event_mjs__WEBPACK_IMPORTED_MODULE_1__.addDomEvent)(window, "scroll", updateScrollValues, { passive: true });
     (0,_events_use_dom_event_mjs__WEBPACK_IMPORTED_MODULE_1__.addDomEvent)(window, "resize", updateScrollValues);
@@ -93459,7 +93267,7 @@ function useSpring(source, config) {
             activeSpringAnimation.current = (0,popmotion__WEBPACK_IMPORTED_MODULE_4__.animate)((0,tslib__WEBPACK_IMPORTED_MODULE_5__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_5__.__assign)({ from: value.get(), to: v, velocity: value.getVelocity() }, config), { onUpdate: set }));
             return value.get();
         });
-    }, Object.values(config));
+    }, [JSON.stringify(config)]);
     (0,_use_on_change_mjs__WEBPACK_IMPORTED_MODULE_6__.useOnChange)(source, function (v) { return value.set(parseFloat(v)); });
     return value;
 }
@@ -96862,6 +96670,11 @@ function combine (array, callback) {
 /******/ 		// no on chunks loaded
 /******/ 		
 /******/ 		// no jsonp function
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
