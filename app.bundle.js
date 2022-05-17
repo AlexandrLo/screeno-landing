@@ -38316,10 +38316,10 @@ HoverBadge.propTypes = {
 
 /***/ }),
 
-/***/ "./src/components/ImageCarousel/index.js":
-/*!***********************************************!*\
-  !*** ./src/components/ImageCarousel/index.js ***!
-  \***********************************************/
+/***/ "./src/components/ImageCarousel/AnimatedSlider.js":
+/*!********************************************************!*\
+  !*** ./src/components/ImageCarousel/AnimatedSlider.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -38328,18 +38328,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var use_debounce__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! use-debounce */ "./node_modules/use-debounce/dist/index.module.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/utils/use-reduced-motion.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
-var _excluded = ["images", "reverse"];
-
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var use_debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! use-debounce */ "./node_modules/use-debounce/dist/index.module.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/scroll/use-viewport-scroll.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-transform.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/value/use-spring.mjs");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/dom/motion.mjs");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -38352,44 +38349,17 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 
 
 
 
 
-
-function ImageCarousel(_ref) {
+function AnimatedSlider(_ref) {
   var images = _ref.images,
       _ref$reverse = _ref.reverse,
       reverse = _ref$reverse === void 0 ? false : _ref$reverse,
-      props = _objectWithoutProperties(_ref, _excluded);
-
-  // Disable motion if reduce motion enabled
-  var prefersReducedMotion = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useReducedMotion)();
-
-  if (prefersReducedMotion) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, _extends({
-      overflowX: "clip"
-    }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.HStack, {
-      spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
-      justifyContent: "center",
-      pl: reverse ? "0" : ["80px", "100px", "120px", "140px", "160px", "180px"],
-      pr: !reverse ? "0" : ["80px", "100px", "120px", "140px", "160px", "180px"]
-    }, images.map(function (image, index) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Image, {
-        w: ["160px", "200px", "240px", "280px", "320px", "360px"],
-        borderRadius: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
-        key: "image-".concat(index),
-        src: image
-      });
-    })));
-  }
+      sizes = _ref.sizes;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -38411,57 +38381,171 @@ function ImageCarousel(_ref) {
       clientWidth = _useState8[0],
       setClientWidth = _useState8[1];
 
-  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_4__.useViewportScroll)(),
+  var _useViewportScroll = (0,framer_motion__WEBPACK_IMPORTED_MODULE_1__.useViewportScroll)(),
       scrollY = _useViewportScroll.scrollY;
 
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  var setDimensions = function setDimensions() {
-    setElementY(ref.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
-    setClientHeight(window.innerHeight);
-    setClientWidth(window.innerWidth);
-    setElementWidth(ref.current.scrollWidth);
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
-    setDimensions();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     window.addEventListener("resize", setDimensions);
     return function () {
       return window.removeEventListener("resize", setDimensions);
     };
-  }, [ref]);
+  }, []);
+  var setDimensions = (0,use_debounce__WEBPACK_IMPORTED_MODULE_2__.useDebouncedCallback)(function () {
+    setElementY(ref.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset);
+    setClientHeight(window.innerHeight);
+    setClientWidth(window.innerWidth);
+    setElementWidth(ref.current.scrollWidth);
+  }, 300);
   var scrollRange = [elementY - clientHeight, elementY + clientHeight];
   var transformRange = [0, -elementWidth + clientWidth];
-  var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_5__.useTransform)(scrollY, scrollRange, reverse ? transformRange.reverse() : transformRange);
-  var transformSpring = (0,framer_motion__WEBPACK_IMPORTED_MODULE_6__.useSpring)(transform, {
-    stiffness: 400,
+  var transform = (0,framer_motion__WEBPACK_IMPORTED_MODULE_3__.useTransform)(scrollY, scrollRange, reverse ? transformRange.reverse() : transformRange);
+  var transformSpring = (0,framer_motion__WEBPACK_IMPORTED_MODULE_4__.useSpring)(transform, {
+    stiffness: 300,
     damping: 90
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, _extends({
-    overflowX: "clip"
-  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_7__.motion.div, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(framer_motion__WEBPACK_IMPORTED_MODULE_5__.motion.div, {
     ref: ref,
     style: {
       x: transformSpring
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.HStack, {
-    spacing: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
-    onLoad: (0,use_debounce__WEBPACK_IMPORTED_MODULE_8__.useDebouncedCallback)(function () {
-      setElementWidth(ref.current.scrollWidth);
-    }, 1000)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.HStack, {
+    spacing: sizes.spacings,
+    onLoad: setDimensions
   }, images.map(function (image, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Image, {
-      w: ["160px", "200px", "240px", "280px", "320px", "360px"],
-      borderRadius: ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem"],
-      key: "image-".concat(index),
-      src: image
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Image, {
+      key: index,
+      src: image,
+      w: sizes.imageWidths,
+      borderRadius: sizes.spacings
     });
-  }))));
+  })));
+}
+
+AnimatedSlider.propTypes = {
+  images: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().array),
+  reverse: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+  sizes: prop_types__WEBPACK_IMPORTED_MODULE_8___default().shape({
+    spacings: prop_types__WEBPACK_IMPORTED_MODULE_8___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_8___default().string)),
+    imageWidths: prop_types__WEBPACK_IMPORTED_MODULE_8___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_8___default().string))
+  })
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AnimatedSlider);
+
+/***/ }),
+
+/***/ "./src/components/ImageCarousel/StaticSlider.js":
+/*!******************************************************!*\
+  !*** ./src/components/ImageCarousel/StaticSlider.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/image/dist/chakra-ui-image.esm.js");
+
+
+
+
+function StaticSlider(_ref) {
+  var images = _ref.images,
+      _ref$reverse = _ref.reverse,
+      reverse = _ref$reverse === void 0 ? false : _ref$reverse,
+      sizes = _ref.sizes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.HStack, {
+    spacing: sizes.spacings,
+    justifyContent: "center",
+    pl: reverse ? "0" : sizes.offsets,
+    pr: !reverse ? "0" : sizes.offsets
+  }, images.map(function (image, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Image, {
+      key: index,
+      src: image,
+      w: sizes.imageWidths,
+      borderRadius: sizes.spacings
+    });
+  }));
+}
+
+StaticSlider.propTypes = {
+  images: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().array),
+  reverse: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+  sizes: prop_types__WEBPACK_IMPORTED_MODULE_3___default().shape({
+    spacings: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)),
+    imageWidths: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)),
+    offsets: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_3___default().string))
+  })
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StaticSlider);
+
+/***/ }),
+
+/***/ "./src/components/ImageCarousel/index.js":
+/*!***********************************************!*\
+  !*** ./src/components/ImageCarousel/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chakra-ui-layout.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/utils/use-reduced-motion.mjs");
+/* harmony import */ var _AnimatedSlider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnimatedSlider */ "./src/components/ImageCarousel/AnimatedSlider.js");
+/* harmony import */ var _StaticSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StaticSlider */ "./src/components/ImageCarousel/StaticSlider.js");
+
+
+
+
+
+
+
+function ImageCarousel(_ref) {
+  var images = _ref.images,
+      _ref$reverse = _ref.reverse,
+      reverse = _ref$reverse === void 0 ? false : _ref$reverse;
+  // Disable motion if reduce motion enabled
+  var prefersReducedMotion = (0,framer_motion__WEBPACK_IMPORTED_MODULE_3__.useReducedMotion)();
+  var spacings = ["0.75rem", "1rem", "1.25rem", "1.5rem", "1.75rem", "1.75rem"];
+  var imageWidths = ["10rem", "12.5rem", "15rem", "17.5rem", "20rem", "22.5rem"];
+  var offsets = imageWidths.map(function (width, i) {
+    return "".concat(parseInt(width) / 2 + parseInt(spacings[i]), "rem");
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Box, {
+    overflowX: "hidden"
+  }, prefersReducedMotion ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StaticSlider__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    images: images,
+    reverse: reverse,
+    sizes: {
+      spacings: spacings,
+      imageWidths: imageWidths,
+      offsets: offsets
+    }
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnimatedSlider__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    images: images,
+    reverse: reverse,
+    sizes: {
+      spacings: spacings,
+      imageWidths: imageWidths
+    }
+  }));
 }
 
 ImageCarousel.propTypes = {
-  images: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().array),
-  reverse: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool)
+  images: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().array),
+  reverse: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageCarousel);
 
@@ -95991,7 +96075,7 @@ module.exports = JSON.parse('["assets/images/partner-logos/logo-android-tv.svg",
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('["assets/images/video-previews/video-1.png","assets/images/video-previews/video-2.png","assets/images/video-previews/video-3.png","assets/images/video-previews/video-4.png","assets/images/video-previews/video-5.png","assets/images/video-previews/video-6.png","assets/images/video-previews/video-7.png","assets/images/video-previews/video-8.png","assets/images/video-previews/video-9.png","assets/images/video-previews/video-10.png","assets/images/video-previews/video-11.png","assets/images/video-previews/video-12.png","assets/images/video-previews/video-14.png","assets/images/video-previews/video-15.png","assets/images/video-previews/video-16.png"]');
+module.exports = JSON.parse('["assets/images/video-previews/video-1.png","assets/images/video-previews/video-2.png","assets/images/video-previews/video-3.png","assets/images/video-previews/video-4.png","assets/images/video-previews/video-5.png","assets/images/video-previews/video-6.png","assets/images/video-previews/video-7.png","assets/images/video-previews/video-8.png","assets/images/video-previews/video-9.png","assets/images/video-previews/video-10.png","assets/images/video-previews/video-11.png","assets/images/video-previews/video-12.png","assets/images/video-previews/video-13.png","assets/images/video-previews/video-14.png","assets/images/video-previews/video-15.png","assets/images/video-previews/video-16.png"]');
 
 /***/ })
 
