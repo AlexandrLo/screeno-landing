@@ -50,7 +50,7 @@
 
 <div align="center">
   <a href="https://alexandrlo.github.io/screeno-landing/">
-    <img src="images/screenshot.png" alt="Logo" width="1024">
+    <img src="images/screenshot.png" alt="Screenshot" width="1024">
   </a>
 </div>
 
