@@ -8,7 +8,7 @@ import Feature from "./Feature";
 import HoverBadge from "components/HoverBadge";
 import Parallax from "components/Parallax";
 
-function FeaturesBig() {
+function FeatureImages() {
   return (
     <Box bg="gray.900">
       <Container
@@ -70,4 +70,4 @@ function FeaturesBig() {
   );
 }
 
-export default FeaturesBig;
+export default FeatureImages;

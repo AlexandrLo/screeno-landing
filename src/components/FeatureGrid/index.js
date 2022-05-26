@@ -45,7 +45,7 @@ const features = [
   },
 ];
 
-function FeaturesGrid() {
+function FeatureGrid() {
   return (
     <Container
       maxW={{ base: "container.sm", xl: "container.xl" }}
@@ -81,4 +81,4 @@ function FeaturesGrid() {
   );
 }
 
-export default FeaturesGrid;
+export default FeatureGrid;

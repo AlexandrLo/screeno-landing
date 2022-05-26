@@ -1,19 +1,20 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Footer from "blocks/Footer";
-import HomePage from "containers/HomePage";
-import NavBar from "blocks/NavBar";
-import NotFoundPage from "containers/NotFoundPage";
+import Footer from "components/Footer";
+import NavBar from "components/NavBar";
+
+import Home from "pages/Home";
+import NotFound from "pages/NotFound";
 
 export default function App() {
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/404" element={<NotFoundPage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       <Footer />
     </>

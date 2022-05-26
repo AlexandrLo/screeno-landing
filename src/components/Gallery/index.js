@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 
-import ImageCarousel from "components/ImageCarousel";
+import ImageCarousel from "./ImageCarousel";
 import previewsData from "assets/json/video-previews.json";
 
 function Gallery() {
